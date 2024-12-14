@@ -35,7 +35,7 @@ export function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="bg-transparent z-50 fixed w-full top-0 left-0"
+      className="backdrop-blur-sm bg-white/4 z-50 fixed w-full top-0 left-0"
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center">
@@ -61,8 +61,8 @@ export function Navbar() {
                     onClick={() => handleClick(item.name)}
                     className={classNames(
                       item.current
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-transparent hover:border border-neutral-600 hover:text-white",
+                        ? "text-white border border-neutral-600 "
+                        : "text-gray-300 hover:bg-transparent hover:text-white",
                       "rounded-md px-3 py-2 text-sm font-medium"
                     )}
                   >

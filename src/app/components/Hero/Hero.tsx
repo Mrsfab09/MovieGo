@@ -30,8 +30,9 @@ export function Hero() {
             Your movies and series in one place
           </h1>
           <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.
+            Access all your favorite movies and TV shows in one seamless
+            platform. Stream endless entertainment whenever you want, with
+            everything organized and ready to enjoy
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a

@@ -1,49 +1,53 @@
 export function Box() {
+  const descriptions = [
+    {
+      src: "/assets/set-up.png",
+      title: "Personalizowane Rekomendacje",
+      desc: "Inteligentny algorytm analizuje Twoje ulubione gatunki, aktorów i filmy, by polecać Ci idealne tytuły",
+    },
+    {
+      src: "/assets/set-up.png",
+      title: "Tryb Maratonu",
+      desc: "Funkcja automatycznego dobierania kolejnych filmów na wieczory tematyczne, np. „Marvel Marathon” lub „Horror Night”.",
+    },
+    {
+      src: "/assets/set-up.png",
+      title: "Interaktywne Recenzje",
+      desc: "Użytkownicy mogą oceniać poszczególne elementy filmu (fabuła, efekty specjalne, aktorstwo) i generować własne statystyki. Funkcja dodatkowa: Porównywanie opinii z innymi użytkownikami.",
+    },
+    {
+      src: "/assets/set-up.png",
+      title: "Dynamiczny Kalendarz Premier",
+      desc: "Zawsze wiesz, co warto obejrzeć – nasz kalendarz automatycznie dopasowuje premiery do Twoich preferencji. Funkcje dodatkowe: Powiadomienia o premierach w kinach i na platformach streamingowych.",
+    },
+    {
+      src: "/assets/set-up.png",
+      title: "Quizy i Gry Filmowe",
+      desc: "Testuj swoją wiedzę o kinie, rozwiązując quizy lub grając w interaktywne gry z nagrodami, np. darmowym dostępem do wybranych filmów.",
+    },
+    {
+      src: "/assets/set-up.png",
+      title: "Quizy i Gry Filmowe",
+      desc: "Testuj swoją wiedzę o kinie, rozwiązując quizy lub grając w interaktywne gry z nagrodami, np. darmowym dostępem do wybranych filmów.",
+    },
+  ];
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-6 p-6">
-      {/* Box 1 - Duży prostokąt pionowy */}
-      <div className="col-span-2 md:col-span-2 lg:col-span-1 row-span-2 backdrop-blur-md bg-gradient-to-r from-white/10 to-white/5 p-6 rounded-lg border border-white/20 shadow-lg min-h-[300px] flex flex-col">
-        <h3 className="text-2xl text-white font-semibold">
-          Assets Diversification
-        </h3>
-        <p className="text-gray-400 mt-2 flex-grow">
-          Zarządzaj swoim portfolio filmów z łatwością. Dzięki rozbudowanemu
-          systemowi, wszystkie filmy są łatwe do znalezienia i zarządzania nimi.
-        </p>
-      </div>
-
-      {/* Box 2 - Mały kwadrat */}
-      <div className="backdrop-blur-md bg-gradient-to-b from-[#ff433d0e] to-[#ff433d34] p-6 rounded-lg border border-white/25 shadow-lg min-h-[200px] flex flex-col">
-        <h3 className="text-xl text-white font-semibold">DeFi Apps</h3>
-        <p className="text-gray-300 mt-2 text-sm flex-grow">
-          Odkrywaj najnowsze hity filmowe z aplikacjami DeFi.
-        </p>
-      </div>
-
-      {/* Box 3 - Prostokąt średni */}
-      <div className="backdrop-blur-md bg-gradient-to-tr from-white/10 to-white/5 p-6 rounded-lg border border-white/20 shadow-lg min-h-[300px] flex flex-col">
-        <h3 className="text-xl text-white font-semibold">
-          Safe Portfolio Matrix
-        </h3>
-        <p className="text-gray-400 mt-2 text-sm flex-grow">
-          Bezpieczne i intuicyjne zarządzanie listą filmów oraz subskrypcjami.
-        </p>
-      </div>
-
-      {/* Box 4 - Prostokąt pionowy */}
-      <div className="row-span-1 backdrop-blur-md bg-gradient-to-b from-[#ff433d0e] to-[#ff433d34] p-6 rounded-lg border border-white/20 shadow-lg min-h-[300px] flex flex-col">
-        <h3 className="text-xl text-white font-semibold">User Wallet</h3>
-        <p className="text-gray-400 mt-2 text-sm flex-grow">
-          Zarządzaj swoją subskrypcją oraz historią filmów.
-        </p>
-      </div>
-      {/* Box 4 - Prostokąt pionowy */}
-      <div className="row-span-1 backdrop-blur-md bg-gradient-to-r from-white/10 to-white/5 p-6 rounded-lg border border-white/20 shadow-lg min-h-[300px] flex flex-col">
-        <h3 className="text-xl text-white font-semibold">User Wallet</h3>
-        <p className="text-gray-400 mt-2 text-sm flex-grow">
-          Zarządzaj swoją subskrypcją oraz historią filmów.
-        </p>
-      </div>
+      {descriptions.map((item, index) => (
+        <div
+          key={index}
+          className={`${
+            index % 5 === 0
+              ? "backdrop-blur-md bg-gradient-to-b from-[#ff433d0e] to-[#ff433d34]"
+              : "backdrop-blur-md bg-gradient-to-r from-white/10 to-white/5"
+          } p-6 rounded-lg border ${
+            index % 2 === 0 ? "border-white/25" : "border-white/20"
+          } shadow-lg min-h-[300px] flex flex-col`}
+        >
+          <h3 className="text-2xl text-white font-semibold">{item.title}</h3>
+          <p className="text-gray-400 mt-2 text-md flex-grow">{item.desc}</p>
+        </div>
+      ))}
     </div>
   );
 }

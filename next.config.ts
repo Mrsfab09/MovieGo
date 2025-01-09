@@ -1,6 +1,10 @@
-// next.config.js
 module.exports = {
   images: {
-    domains: ["images.unsplash.com"], // Dodaj tutaj domenę, z której będą ładowane obrazy
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
   },
 };

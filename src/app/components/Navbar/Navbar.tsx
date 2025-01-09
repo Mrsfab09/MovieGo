@@ -8,6 +8,7 @@ import {
 import Image from "next/image";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const initialNavigation = [
   { name: "Features", href: "#", current: false },
@@ -72,11 +73,12 @@ export function Navbar() {
               </div>
             </div>
           </div>
-
           <div className="absolute inset-y-0 right-0 flex items-center space-x-4">
-            <button className="bg-[#ff433dd5] rounded-md px-4 py-2 text-sm font-medium text-neutral-300">
-              SignUp
-            </button>
+            <Link href="/signup">
+              <button className="bg-[#ff433dd5] rounded-md px-4 py-2 text-sm font-medium text-neutral-300">
+                SignUp
+              </button>
+            </Link>
             <button className="rounded-md px-4 py-2 text-sm font-medium text-neutral-100 hover:bg-neutral-800">
               Log In
             </button>

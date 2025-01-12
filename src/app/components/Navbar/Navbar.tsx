@@ -12,7 +12,7 @@ import Link from "next/link";
 
 const initialNavigation = [
   { name: "Features", href: "#", current: false },
-  { name: "Pricing", href: "#", current: false },
+  { name: "Pricing", href: "/pricing", current: false },
   { name: "Faq", href: "#", current: false },
   { name: "Contact", href: "#", current: false },
 ];
@@ -79,9 +79,11 @@ export function Navbar() {
                 SignUp
               </button>
             </Link>
-            <button className="rounded-md px-4 py-2 text-sm font-medium text-neutral-100 hover:bg-neutral-800">
-              Log In
-            </button>
+            <Link href="/login">
+              <button className="rounded-md px-4 py-2 text-sm font-medium text-neutral-100 hover:bg-neutral-800">
+                Log In
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function Hero() {
   return (
     <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -13,18 +15,13 @@ export function Hero() {
           className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff433dea] to-[#ff433d7c] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
         />
       </div>
+      {/* <Image
+        width={500}
+        height={200}
+        src={"/assets/popcorn-cinema.jpg"}
+        alt={"cinema"}
+      /> */}
       <div className="mx-auto max-w-2xl py-52 sm:py-48 lg:py-52">
-        <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-100 ring-1 ring-gray-100/10 hover:ring-gray-200/20">
-            From just 33$ per month.{""}
-            <span className="ml-2">
-              <a href="#" className="font-semibold text-[#ff433dea]">
-                <span aria-hidden="true" className="absolute inset-0" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </span>
-          </div>
-        </div>
         <div className="text-center">
           <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-300 sm:text-7xl">
             Your movies and series in one place
@@ -34,16 +31,16 @@ export function Hero() {
             platform. Stream endless entertainment whenever you want, with
             everything organized and ready to enjoy
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
-              href="#"
-              className="rounded-md bg-[#ff433dea] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#ff433db6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Get started
-            </a>
-            <a href="#" className="text-sm/6 font-semibold text-[#ff433dc7]">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
+          <div className="hidden sm:mb-8 sm:flex sm:justify-center mt-10">
+            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-100 ring-1 ring-gray-100/10 hover:ring-gray-200/20">
+              From just 33$ per month.{""}
+              <span className="ml-2">
+                <a href="#" className="font-semibold text-[#ff433dea]">
+                  <span aria-hidden="true" className="absolute inset-0" />
+                  Read more <span aria-hidden="true">&rarr;</span>
+                </a>
+              </span>
+            </div>
           </div>
         </div>
       </div>

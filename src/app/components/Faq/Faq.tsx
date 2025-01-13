@@ -41,7 +41,10 @@ export function Faq() {
           className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff433dc9] to-[#ff433d7c] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
         />
       </div>
-      <div className="relative mx-auto max-w-7xl py-28 sm:py-32 lg:py-32 mb-48">
+      <div
+        className="relative mx-auto max-w-7xl py-28 sm:py-32 lg:py-32 mb-32"
+        id="faq"
+      >
         <div className="text-center max-w-2xl flex flex-col mx-auto sm:mb-8">
           <h2 className="text-gray-300 font-semibold tracking-tight text-5xl">
             Frequently Asked Questions

@@ -15,13 +15,16 @@ export function Hero() {
           className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff433dea] to-[#ff433d7c] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
         />
       </div>
-      {/* <Image
-        width={500}
-        height={200}
-        src={"/assets/popcorn-cinema.jpg"}
-        alt={"cinema"}
-      /> */}
-      <div className="mx-auto max-w-2xl py-52 sm:py-48 lg:py-52">
+      <div className="flex justify-center p-5">
+        <Image
+          width={1100}
+          height={500}
+          src={"/assets/movies_resized.png"}
+          className="rounded-lg border border-slate-400 mt-8 w-full sm:w-auto"
+          alt={"cinema"}
+        />
+      </div>
+      <div className="mx-auto max-w-2xl py-20 sm:py-20 lg:py-20">
         <div className="text-center">
           <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-300 sm:text-7xl">
             Your movies and series in one place

@@ -11,9 +11,9 @@ import { useState } from "react";
 import Link from "next/link";
 
 const initialNavigation = [
-  { name: "Features", href: "#", current: false },
+  { name: "Features", href: "#features", current: false },
   { name: "Pricing", href: "/pricing", current: false },
-  { name: "Faq", href: "#", current: false },
+  { name: "Faq", href: "#faq", current: false },
   { name: "Contact", href: "#", current: false },
 ];
 

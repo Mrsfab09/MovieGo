@@ -42,12 +42,15 @@ export function Navbar() {
         <div className="relative flex h-16 items-center">
           <div className="absolute inset-y-0 left-0 flex items-center">
             <div className="flex shrink-0 items-center">
-              <Image
-                width={200}
-                height={200}
-                alt="logoMovieGo"
-                src="/assets/logoGo.png"
-              />
+              <Link href="/">
+                <Image
+                  width={200}
+                  height={200}
+                  alt="logoMovieGo"
+                  src="/assets/logoGo.png"
+                  className="cursor-pointer"
+                />
+              </Link>
             </div>
           </div>
 

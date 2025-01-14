@@ -1,7 +1,16 @@
-export default function SignUp() {
+import { SignUp } from "@clerk/nextjs";
+
+export default function SignUpPage() {
   return (
-    <div>
-      <h1>Sign Up</h1>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <SignUp routing="hash" />
     </div>
   );
 }

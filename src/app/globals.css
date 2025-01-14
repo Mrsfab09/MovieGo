@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0af6; /* Czarny motyw na stałe */
+  --background: #0a0a0af6;
   --foreground: #ededed;
   --orange: #ff433dea;
 }

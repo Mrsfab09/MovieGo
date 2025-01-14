@@ -65,9 +65,11 @@ export function Faq() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <h3 className="text-slate-300 text-3xl font-semibold mb-4">
-                  {faq.question}
-                </h3>
+                <div className="relative group">
+                  <h3 className="text-slate-300 text-3xl font-semibold mb-4 transform transition-all duration-500 ease-in-out hover:translate-x-4 group-hover:translate-x-28">
+                    {faq.question}
+                  </h3>
+                </div>
               </div>
             ))}
           </div>

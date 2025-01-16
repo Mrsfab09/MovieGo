@@ -20,7 +20,7 @@ export function Hero() {
           width={1100}
           height={500}
           src={"/assets/movies_resized.png"}
-          className="rounded-lg border border-slate-400 mt-8 w-full sm:w-auto"
+          className="rounded-lg border border-slate-400 mt-8 w-full sm:w-auto opacity-80"
           alt={"cinema"}
         />
       </div>

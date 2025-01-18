@@ -14,7 +14,7 @@ const initialNavigation = [
   { name: "Features", href: "#features", current: false },
   { name: "Pricing", href: "/pricing", current: false },
   { name: "Faq", href: "#faq", current: false },
-  { name: "Contact", href: "#", current: false },
+  { name: "Contact", href: "/contact", current: false },
 ];
 
 function classNames(...classes: string[]): string {

@@ -20,7 +20,7 @@ export function Hero() {
           width={1100}
           height={500}
           src={"/assets/movies_resized.png"}
-          className="rounded-lg border border-slate-400 mt-8 w-full sm:w-auto opacity-80"
+          className="rounded-lg border border-slate-400 mt-8 w-full sm:w-auto opacity-95"
           alt={"cinema"}
         />
       </div>
@@ -38,7 +38,7 @@ export function Hero() {
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-100 ring-1 ring-gray-100/10 hover:ring-gray-200/20">
               From just 33$ per month.{""}
               <span className="ml-2">
-                <a href="#" className="font-semibold text-[#ff433dea]">
+                <a href="/pricing" className="font-semibold text-[#ff433dea]">
                   <span aria-hidden="true" className="absolute inset-0" />
                   Read more <span aria-hidden="true">&rarr;</span>
                 </a>

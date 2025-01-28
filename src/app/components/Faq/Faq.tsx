@@ -4,29 +4,35 @@ import { useState } from "react";
 
 export function Faq() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const mouseEnter = (index: number) => {
+    setHoveredIndex(index), setActiveIndex(index);
+  };
 
   const faqs = [
     {
-      question: "01 What is MovieGo",
+      question: "What is MovieGo ?",
       answer:
         "Next.js is a React framework for building static and dynamic websites and web applications.",
     },
     {
-      question: "02 How much does access to the application cost?",
+      question: "How much does access to the application cost ?",
       answer:
         "Tailwind CSS is a utility-first CSS framework for rapid UI development.",
     },
     {
-      question: "03 Where can I watch?",
+      question: "Where can I watch ?",
       answer:
         'You can install Next.js by running the command "npx create-next-app@latest".',
     },
     {
-      question: "04 How to unsubscribe",
+      question: "How to unsubscribe ?",
       answer:
         'Install Tailwind by running "npm install -D tailwindcss postcss autoprefixer".',
     },
   ];
+
   return (
     <div className="relative isolate px-6 lg:px-8 transparent">
       <div
@@ -61,12 +67,21 @@ export function Faq() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="p-4 "
-                onMouseEnter={() => setHoveredIndex(index)}
+                className="p-4"
+                onMouseEnter={() => mouseEnter(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="relative group">
-                  <h3 className="text-slate-300 text-3xl font-semibold mb-4 transform transition-all duration-500 ease-in-out hover:translate-x-4 group-hover:translate-x-28">
+                  <h3
+                    className={`text-slate-300 text-3xl font-semibold mb-4 transform transition-all duration-500 ease-in-out 
+                      ${
+                        activeIndex === index || index === activeIndex
+                          ? "translate-x-20"
+                          : hoveredIndex === index
+                          ? "translate-x-12"
+                          : ""
+                      }`}
+                  >
                     {faq.question}
                   </h3>
                 </div>
@@ -75,11 +90,28 @@ export function Faq() {
           </div>
 
           <div className="w-full md:w-2/3 pl-6 mt-6 md:mt-0">
-            {hoveredIndex !== null && (
-              <div className="w-80 h-96 text-2xl flex-shrink-0 p-6 rotate-3 rounded-lg backdrop-blur-md bg-gradient-to-r from-white/5 to-white/3">
-                <p>{faqs[hoveredIndex].answer}</p>
+            <div className="w-96 relative drop-shadow-xl h-96 overflow-hidden rounded-xl bg-[#3d3c3d1c] rotate-3">
+              <div className="absolute flex flex-col items-center text-white text-xl z-[1] opacity-90 rounded-xl inset-0.5 bg-[#0303034f] p-8 gap-8">
+                <h3 className="font-bold">
+                  {hoveredIndex !== null
+                    ? faqs[hoveredIndex].question
+                    : faqs[activeIndex].question}
+                </h3>
+                <p className="text-slate-300">
+                  {hoveredIndex !== null
+                    ? faqs[hoveredIndex].answer
+                    : faqs[activeIndex].answer}
+                </p>
               </div>
-            )}
+            </div>
+
+            {/* <div className="w-80 h-96 text-2xl flex-shrink-0 p-6 rotate-3 rounded-lg backdrop-blur-md bg-gradient-to-r from-white/5 to-white/5">
+              <p>
+                {hoveredIndex !== null
+                  ? faqs[hoveredIndex].answer
+                  : faqs[activeIndex].answer}
+              </p>
+            </div> */}
           </div>
         </div>
       </div>

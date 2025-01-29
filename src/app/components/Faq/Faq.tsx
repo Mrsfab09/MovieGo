@@ -55,7 +55,7 @@ export function Faq() {
           <h2 className="text-gray-300 font-semibold tracking-tight text-5xl">
             Frequently Asked Questions
           </h2>
-          <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+          <p className="mt-8 mb-12 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
             soluta assumenda accusantium temporibus beatae praesentium
             exercitationem esse fugit expedita nemo.
@@ -71,7 +71,7 @@ export function Faq() {
                 onMouseEnter={() => mouseEnter(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <div className="relative group">
+                <div className="relative group invisible sm:visible">
                   <h3
                     className={`text-slate-300 text-3xl font-semibold mb-4 transform transition-all duration-500 ease-in-out 
                       ${
@@ -89,8 +89,8 @@ export function Faq() {
             ))}
           </div>
 
-          <div className="w-full md:w-2/3 pl-6 mt-6 md:mt-0">
-            <div className="w-96 relative drop-shadow-xl h-96 overflow-hidden rounded-xl bg-[#3d3c3d1c] rotate-3">
+          <div className="w-full md:w-2/3 pl-6 mt-6 md:mt-0 flex flex-col justify-center">
+            <div className="w-96 relative drop-shadow-xl h-96 overflow-hidden rounded-xl bg-[#3d3c3d1c] rotate-0 sm:rotate-3">
               <div className="absolute flex flex-col items-center text-white text-xl z-[1] opacity-90 rounded-xl inset-0.5 bg-[#0303034f] p-8 gap-8">
                 <h3 className="font-bold">
                   {hoveredIndex !== null

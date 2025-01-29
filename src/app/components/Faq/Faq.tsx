@@ -104,14 +104,6 @@ export function Faq() {
                 </p>
               </div>
             </div>
-
-            {/* <div className="w-80 h-96 text-2xl flex-shrink-0 p-6 rotate-3 rounded-lg backdrop-blur-md bg-gradient-to-r from-white/5 to-white/5">
-              <p>
-                {hoveredIndex !== null
-                  ? faqs[hoveredIndex].answer
-                  : faqs[activeIndex].answer}
-              </p>
-            </div> */}
           </div>
         </div>
       </div>

@@ -15,9 +15,3 @@ body {
   background: var(--background);
   font-family: "Montserrat", sans-serif;
 }
-/* .gradient-border {
-  border-width: 2px;
-  border-radius: 10px !important;
-  border-style: solid;
-  border-image: linear-gradient(to right, #ff433dc5, #ff433d7c) 1;
-} */

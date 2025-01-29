@@ -6,9 +6,9 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import Image from "next/image";
-
 import { useState } from "react";
 import Link from "next/link";
+import { Bars3Icon } from "@heroicons/react/24/outline"; // Import ikony hamburgera
 
 const initialNavigation = [
   { name: "Features", href: "#features", current: false },
@@ -33,12 +33,13 @@ export function Navbar() {
       )
     );
   };
+
   return (
     <Disclosure
       as="nav"
       className="backdrop-blur-sm bg-white/4 z-50 fixed w-full top-0 left-0"
     >
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 overflow-x-hidden">
         <div className="relative flex h-16 items-center">
           <div className="absolute inset-y-0 left-0 flex items-center">
             <div className="flex shrink-0 items-center">
@@ -65,9 +66,9 @@ export function Navbar() {
                     onClick={() => handleClick(item.name)}
                     className={classNames(
                       item.current
-                        ? "text-white border border-neutral-600 "
+                        ? "text-white border border-neutral-600"
                         : "text-gray-300 hover:bg-transparent hover:text-white",
-                      "rounded-md px-3 py-2 text-sm font-medium"
+                      "rounded-md px-3 py-2 text-md font-medium"
                     )}
                   >
                     {item.name}
@@ -76,7 +77,8 @@ export function Navbar() {
               </div>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center space-x-4">
+
+          <div className="absolute inset-y-0 right-0 flex items-center justify-center space-x-4 sm:flex ">
             <Link href="/signup">
               <button className="bg-[#ff433dd5] rounded-md px-4 py-2 text-sm font-medium text-neutral-300">
                 SignUp
@@ -88,9 +90,21 @@ export function Navbar() {
               </button>
             </Link>
           </div>
+
+          {/* Ikona hamburgera - widoczna tylko na małych ekranach */}
+          <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
+            <DisclosureButton
+              as="button"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+            </DisclosureButton>
+          </div>
         </div>
       </div>
 
+      {/* Panel rozwijany w wersji mobilnej */}
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
           {navigation.map((item) => (
@@ -110,6 +124,18 @@ export function Navbar() {
               {item.name}
             </DisclosureButton>
           ))}
+
+          {/* Przycisków SignUp i Log In widoczne tylko w menu rozwijanym */}
+          <Link href="/signup">
+            <DisclosureButton className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-white bg-[#ff433dd5] hover:bg-[#ff433dd5]/90">
+              Sign Up
+            </DisclosureButton>
+          </Link>
+          <Link href="/login">
+            <DisclosureButton className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-white hover:bg-neutral-800">
+              Log In
+            </DisclosureButton>
+          </Link>
         </div>
       </DisclosurePanel>
     </Disclosure>

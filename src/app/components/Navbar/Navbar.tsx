@@ -78,10 +78,10 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="absolute inset-y-0 right-0 flex items-center justify-center space-x-4 sm:flex ">
+          <div className="absolute inset-y-0 right-0 flex items-center justify-center space-x-4 hidden sm:flex">
             <Link href="/signup">
               <button className="bg-[#ff433dd5] rounded-md px-4 py-2 text-sm font-medium text-neutral-300">
-                SignUp
+                Sign Up
               </button>
             </Link>
             <Link href="/login">

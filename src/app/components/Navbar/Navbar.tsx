@@ -94,7 +94,7 @@ export function Navbar() {
           <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
             <DisclosureButton
               as="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-neutral-900 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
@@ -114,22 +114,21 @@ export function Navbar() {
               onClick={() => handleClick(item.name)}
               className={classNames(
                 item.current
-                  ? "bg-gray-900 text-white"
-                  : "text-gray-300 hover:bg-neutral-200 hover:text-white",
+                  ? "bg-neutral-800 text-white"
+                  : "text-gray-300 hover:bg-neutral-500 hover:text-white",
                 "block rounded-md px-3 py-2 text-base font-medium"
               )}
             >
               {item.name}
             </DisclosureButton>
           ))}
-
           <Link href="/signup">
-            <DisclosureButton className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-white bg-[#ff433dd5] hover:bg-[#ff433dd5]/90">
+            <DisclosureButton className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-white bg-[#ff433dd5] hover:bg-[#ff433dd5]/90 mb-4">
               Sign Up
             </DisclosureButton>
           </Link>
           <Link href="/login">
-            <DisclosureButton className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-white hover:bg-neutral-800">
+            <DisclosureButton className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-white bg-neutral-900 hover:bg-neutral-800">
               Log In
             </DisclosureButton>
           </Link>

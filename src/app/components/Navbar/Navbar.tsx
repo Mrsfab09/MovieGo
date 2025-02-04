@@ -103,7 +103,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Panel rozwijany w wersji mobilnej */}
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
           {navigation.map((item) => (
@@ -124,7 +123,6 @@ export function Navbar() {
             </DisclosureButton>
           ))}
 
-          {/* Przycisków SignUp i Log In widoczne tylko w menu rozwijanym */}
           <Link href="/signup">
             <DisclosureButton className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-white bg-[#ff433dd5] hover:bg-[#ff433dd5]/90">
               Sign Up

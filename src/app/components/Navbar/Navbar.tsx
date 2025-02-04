@@ -91,7 +91,6 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Ikona hamburgera - widoczna tylko na małych ekranach */}
           <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
             <DisclosureButton
               as="button"

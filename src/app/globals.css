@@ -15,3 +15,13 @@ body {
   background: var(--background);
   font-family: "Montserrat", sans-serif;
 }
+
+/* Ukrywa pasek przewijania w Chrome, Safari */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ukrywa pasek przewijania w Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}

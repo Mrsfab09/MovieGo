@@ -1,4 +1,4 @@
-import IMAGES from "@assets/logoGo.png";
+// import IMAGES from "@assets/logoGo.png";
 import Image from "next/image";
 
 export function Footer() {

@@ -1,6 +1,3 @@
-import { useState } from "react";
-
-// Typ dla FAQ
 interface FaqItemProps {
   faq: { question: string; answer: string };
   index: number;
@@ -20,7 +17,6 @@ export function FaqItem({
       onMouseEnter={() => setHoveredIndex(index)}
       onMouseLeave={() => setHoveredIndex(null)}
     >
-      {/* Pytanie po lewej stronie */}
       <div className="w-96">
         <h3
           className={`text-slate-300 text-3xl font-semibold transition-all duration-500 ease-in-out ${
@@ -31,7 +27,6 @@ export function FaqItem({
         </h3>
       </div>
 
-      {/* Odpowiedź po prawej stronie */}
       <div
         className={`w-1/2 transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 ${
           hoveredIndex === index ? "opacity-100" : ""

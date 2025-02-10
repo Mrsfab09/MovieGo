@@ -1,18 +1,14 @@
-
 # MovieGo
 
-A brief description of what this project does and who it's for
+**MovieGo** is an app that helps you discover movies and TV shows in one place! 🌟 Browse the latest releases, classics, and hidden gems. Find the perfect title for your evening thanks to its intuitive interface and detailed information about the productions.
 
+## 🚀 Tech Stack
+MovieGo is built using the following technologies:
 
-## Features
-
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
-
-
-## Demo
-
-Insert gif or link to demo
+- **Next.js** (React Framework)
+- **React**
+- **Tailwind CSS** (for styling)
+- **Clerk** (for authentication)
+- **NestJS** (Backend framework)
+- **TMDB API** (for movie and TV show data)
 

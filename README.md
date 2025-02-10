@@ -1,6 +1,6 @@
 # MovieGo
 
-**MovieGo** is an app that helps you discover movies and TV shows in one place! 🌟 Browse the latest releases, classics, and hidden gems. Find the perfect title for your evening thanks to its intuitive interface and detailed information about the productions.
+**MovieGo** is an app that helps you discover movies and series in one place! 🌟 Browse the latest releases, classics, and hidden gems. Find the perfect title for your evening thanks to its intuitive interface and detailed information about the productions.
 
 ## 🚀 Tech Stack
 MovieGo is built using the following technologies:

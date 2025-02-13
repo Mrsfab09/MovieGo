@@ -52,8 +52,8 @@ export function Box() {
           } shadow-lg min-h-[300px] flex flex-col`}
         >
           <div className="flex items-start gap-4">
-            <div>
-              <Image src={item.src} width={50} height={50} alt="image" />
+            <div className="bg-neutral-900 p-3 rounded-lg">
+              <Image src={item.src} width={80} height={80} alt="image" />
             </div>
             <div>
               <h3 className="text-[25px] text-white font-semibold">

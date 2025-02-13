@@ -16,7 +16,6 @@ export function FaqCarousel({
   return (
     <div className="w-full sm:w-[32rem] max-w-lg sm:max-w-[40rem]">
       <div className="relative sm:drop-shadow-xl h-96 overflow-hidden rounded-xl bg-[#3d3c3d1c] sm:rotate-3">
-        {/* Karuzela */}
         <div
           ref={scrollRef}
           className="flex sm:block overflow-x-auto snap-x snap-mandatory scrollbar-hide h-full"

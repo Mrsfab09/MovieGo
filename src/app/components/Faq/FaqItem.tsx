@@ -3,37 +3,30 @@ interface FaqItemProps {
   index: number;
   hoveredIndex: number | null;
   setHoveredIndex: (index: number | null) => void;
+  onMouseEnter: (index: number) => void;
 }
 
 export function FaqItem({
   faq,
   index,
   hoveredIndex,
-  setHoveredIndex,
+  onMouseEnter,
 }: FaqItemProps) {
   return (
     <div
-      className="relative sm:drop-shadow-xl p-2 flex flex-row items-center space-x-0 gap-12"
-      onMouseEnter={() => setHoveredIndex(index)}
-      onMouseLeave={() => setHoveredIndex(null)}
+      className="flex sm:flex-row items-start p-4 mb-4 cursor-pointer"
+      onMouseEnter={() => onMouseEnter(index)} // Keep the hovered index when hovering
     >
-      <div className="w-96">
-        <h3
-          className={`text-slate-300 text-3xl font-semibold transition-all duration-500 ease-in-out ${
-            hoveredIndex === index ? "translate-x-12" : ""
-          }`}
-        >
-          {faq.question}
-        </h3>
-      </div>
-
-      <div
-        className={`w-1/2 transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 ${
-          hoveredIndex === index ? "opacity-100" : ""
-        }`}
-      >
-        <div className="bg-black text-slate-300 p-4 rounded-xl">
-          <p className="text-lg">{faq.answer}</p>
+      {/* Column for questions */}
+      <div className="w-full sm:w-2/3 space-y-4">
+        <div className="relative group">
+          <h3
+            className={`text-slate-300 text-3xl font-semibold mb-4 transform transition-all duration-500 ease-in-out ${
+              hoveredIndex === index ? "translate-x-12" : ""
+            }`}
+          >
+            {faq.question}
+          </h3>
         </div>
       </div>
     </div>

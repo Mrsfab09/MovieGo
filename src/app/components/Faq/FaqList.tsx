@@ -4,11 +4,17 @@ interface FaqListProps {
   faqs: { question: string; answer: string }[];
   hoveredIndex: number | null;
   setHoveredIndex: (index: number | null) => void;
+  onMouseEnter: (index: number) => void;
 }
 
-export function FaqList({ faqs, hoveredIndex, setHoveredIndex }: FaqListProps) {
+export function FaqList({
+  faqs,
+  hoveredIndex,
+  setHoveredIndex,
+  onMouseEnter,
+}: FaqListProps) {
   return (
-    <div className="w-full">
+    <div>
       {faqs.map((faq, index) => (
         <FaqItem
           key={index}
@@ -16,6 +22,7 @@ export function FaqList({ faqs, hoveredIndex, setHoveredIndex }: FaqListProps) {
           index={index}
           hoveredIndex={hoveredIndex}
           setHoveredIndex={setHoveredIndex}
+          onMouseEnter={onMouseEnter} // Pass onMouseEnter here
         />
       ))}
     </div>

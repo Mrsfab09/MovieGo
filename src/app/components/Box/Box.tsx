@@ -9,7 +9,7 @@ export function Box() {
       desc: "Inteligentny algorytm analizuje Twoje ulubione gatunki, aktorów i filmy, by polecać Ci idealne tytuły",
     },
     {
-      src: "./clipboard.svg",
+      src: "./marathon.svg",
       color: "red",
       title: "Tryb Maratonu",
       desc: "Funkcja automatycznego dobierania kolejnych filmów na wieczory tematyczne, np. „Marvel Marathon” lub „Horror Night”.",
@@ -21,7 +21,7 @@ export function Box() {
       desc: "Użytkownicy mogą oceniać poszczególne elementy filmu (fabuła, efekty specjalne, aktorstwo) i generować własne statystyki. Funkcja dodatkowa: Porównywanie opinii z innymi użytkownikami.",
     },
     {
-      src: "./calendar.svg",
+      src: "./calendar2.svg",
       color: "red",
       title: "Dynamiczny Kalendarz Premier",
       desc: "Zawsze wiesz, co warto obejrzeć – nasz kalendarz automatycznie dopasowuje premiery do Twoich preferencji. Funkcje dodatkowe: Powiadomienia o premierach w kinach i na platformach streamingowych.",
@@ -33,9 +33,9 @@ export function Box() {
       desc: "Testuj swoją wiedzę o kinie, rozwiązując quizy lub grając w interaktywne gry z nagrodami, np. darmowym dostępem do wybranych filmów.",
     },
     {
-      src: "./clipboard.svg",
-      title: "Quizy i Gry Filmowe",
-      desc: "Testuj swoją wiedzę o kinie, rozwiązując quizy lub grając w interaktywne gry z nagrodami, np. darmowym dostępem do wybranych filmów.",
+      src: "./chart.svg",
+      title: "Przewodnik Po Nowościach",
+      desc: "Bądź zawsze na bieżąco! Odkrywaj najnowsze premiery kinowe oraz nadchodzące hity z przewodnikiem MovieGo.",
     },
   ];
   return (
@@ -51,10 +51,13 @@ export function Box() {
             index % 2 === 0 ? "border-white/25" : "border-white/20"
           } shadow-lg min-h-[300px] flex flex-col`}
         >
-          <div className="flex items-start gap-4">
-            <div className="bg-neutral-900 p-3 rounded-lg">
-              <Image src={item.src} width={80} height={80} alt="image" />
+          <div className="inline-flex">
+            <div className="bg-neutral-900/40 p-4 rounded-lg mb-3 shadow-[5px_8px_17px_#9e1e1c96]">
+              <Image src={item.src} width={35} height={35} alt="image" />
             </div>
+          </div>
+
+          <div className="flex gap-4">
             <div>
               <h3 className="text-[25px] text-white font-semibold">
                 {item.title}

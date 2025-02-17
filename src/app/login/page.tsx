@@ -7,12 +7,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function SignInPage() {
-  const { isSignedIn } = useUser(); // Hook do sprawdzenia, czy użytkownik jest zalogowany
+  const { isSignedIn } = useUser();
 
   useEffect(() => {
     if (isSignedIn) {
-      // Jeśli użytkownik jest zalogowany, przekieruj go na stronę dashboard
-      window.location.href = "/dashboard"; // lub użyj routera Next.js
+      window.location.href = "/dashboard";
     }
   }, [isSignedIn]);
 

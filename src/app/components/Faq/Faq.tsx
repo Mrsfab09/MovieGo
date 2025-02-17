@@ -38,7 +38,7 @@ export function Faq() {
               faqs={faqs}
               hoveredIndex={hoveredIndex}
               setHoveredIndex={setHoveredIndex}
-              onMouseEnter={handleMouseEnter} 
+              onMouseEnter={handleMouseEnter}
             />
           </div>
 
@@ -60,8 +60,8 @@ export function Faq() {
                   <p className="text-slate-300">{faqs[hoveredIndex].answer}</p>
                 </div>
               </div>
-              )}
-            </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

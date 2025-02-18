@@ -52,13 +52,19 @@ export function Box() {
           } shadow-lg min-h-[300px] flex flex-col`}
         >
           <div className="inline-flex">
-            <div className="bg-neutral-900/40 p-4 rounded-lg mb-3 shadow-[5px_8px_17px_#9e1e1c96]">
-              <Image src={item.src} width={35} height={35} alt="image" />
+            <div className="bg-black/20 p-3 rounded-2xl mb-3 shadow-[0px_5px_20px_#00000013,inset_4px_4px_20px_#00000036,inset_8px_8px_30px_#00000047]">
+              <Image
+                className="opacity-50"
+                src={item.src}
+                width={35}
+                height={35}
+                alt="image"
+              />
             </div>
           </div>
 
           <div className="flex gap-4">
-            <div>
+            <div className="relative">
               <h3 className="text-[25px] text-white font-semibold">
                 {item.title}
               </h3>
@@ -67,6 +73,8 @@ export function Box() {
               </p>
             </div>
           </div>
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg shadow-inner"></div>
         </div>
       ))}
     </div>

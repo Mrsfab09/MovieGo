@@ -54,7 +54,7 @@ export function Faq() {
           {/* Box on the right */}
           <div className="sm:w-1/2 w-full sm:block mt-6 sm:mt-0 pl-6">
             {hoveredIndex !== null && (
-              <div className="w-96 relative drop-shadow-xl h-96 overflow-hidden rounded-xl bg-[#3d3c3d1c] rotate-0 sm:rotate-3 hidden sm:block">
+              <div className="w-96 border border-neutral-700 relative drop-shadow-xl h-96 overflow-hidden rounded-xl bg-[#3d3c3d1c] rotate-0 sm:rotate-3 hidden sm:block">
                 <div className="absolute flex flex-col items-center text-white text-xl z-[1] opacity-90 rounded-xl inset-0.5 bg-[#0303034f] p-8 gap-8">
                   <h3 className="font-bold">{faqs[hoveredIndex].question}</h3>
                   <p className="text-slate-300">{faqs[hoveredIndex].answer}</p>

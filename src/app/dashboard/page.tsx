@@ -3,13 +3,14 @@
 
 import { auth } from "@clerk/nextjs/server"; // Importuj auth z Clerk
 import LogoutButton from "../components/LogoutButton/LogoutButton";
+import { AlertTest } from "../components/AlertTest/AlertTest";
 
 export default async function DashboardPage() {
   try {
     const { userId } = await auth(); // Czekaj na rozwiązanie obietnicy
 
     if (!userId) {
-      return <p>Nie jesteś zalogowany.</p>;
+      return <AlertTest />;
     }
 
     return (

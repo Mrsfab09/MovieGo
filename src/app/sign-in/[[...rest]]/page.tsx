@@ -2,7 +2,11 @@
 import { SignIn } from "@clerk/nextjs";
 
 export default function SignInPage() {
-  return <SignIn />;
+  return (
+    <SignIn
+      afterSignInUrl="/dashboard" // Określenie, gdzie użytkownik ma zostać przekierowany po zalogowaniu
+    />
+  );
 }
 
 // "use client";

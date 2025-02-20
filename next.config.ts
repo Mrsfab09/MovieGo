@@ -1,7 +1,7 @@
 module.exports = {
-  // experimental: {
-  //   clerk: true,
-  // },
+  experimental: {
+    clerk: true,
+  },
   images: {
     remotePatterns: [
       {

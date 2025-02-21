@@ -1,9 +1,34 @@
 "use client";
+
+import { useState } from "react";
 import { SignUp } from "@clerk/nextjs";
+import { Loader } from "@/app/components/Loader/Loader";
+// Załóżmy, że Loader jest w components/Loader.tsx
 
 export default function SignUpPage() {
-  return <SignUp afterSignInUrl="/dashboard" />;
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Funkcja wywoływana po rozpoczęciu rejestracji
+  const handleSignUpStart = () => {
+    setIsLoading(true); // Ustawiamy isLoading na true, aby pokazać loader
+  };
+
+  // Funkcja wywoływana po zakończeniu rejestracji
+  const handleSignUpSuccess = () => {
+    setIsLoading(false); // Zatrzymujemy loader, przekierowując użytkownika na dashboard
+  };
+
+  return (
+    <div className="relative">
+      {isLoading && <Loader />} {/* Pokazujemy Loader, jeśli isLoading jest true */}
+
+      <SignUp
+        afterSignUpUrl="/dashboard" // Ustawia URL, na który użytkownik zostanie przekierowany po rejestracji
+      />
+    </div>
+  );
 }
+
 
 // "use client";
 

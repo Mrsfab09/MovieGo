@@ -1,28 +1,58 @@
-"use client";
+import { UserButton } from "@clerk/nextjs";
 
-import { useState } from "react";
-
-export function LogoutButton() {
-  const [loading, setLoading] = useState(false);
-
-  const handleLogout = async () => {
-    setLoading(true);
-    const response = await fetch("/logout", {
-      method: "POST",
-    });
-
-    if (response.ok) {
-      // Redirect to login page after logout
-      window.location.href = "/login";
-    } else {
-      setLoading(false);
-      console.log("Failed to log out");
-    }
-  };
-
+export default function LogoutButton() {
   return (
-    <button onClick={handleLogout} disabled={loading}>
-      {loading ? "Logging out..." : "Log out"}
-    </button>
+    <nav className="flex justify-between p-4 bg-gray-800 text-white">
+      <h1>Movie Go</h1>
+      <UserButton afterSignOutUrl="/" />
+    </nav>
   );
 }
+
+// "use client";
+
+// import { useClerk } from "@clerk/clerk-react";
+// import { useRouter } from "next/navigation";
+
+// export const LogoutButton = () => {
+//   const { signOut } = useClerk();
+//   const router = useRouter();
+
+//   const handleLogout = async () => {
+//     await signOut();
+//     router.push("/"); // Przekierowanie po wylogowaniu
+//   };
+
+//   return (
+//     <button
+//       onClick={handleLogout}
+//       className="bg-red-600 text-white p-2 rounded"
+//     >
+//       Log out
+//     </button>
+//   );
+// };
+
+// "use client"; // Zapewnia, że komponent działa po stronie klienta
+
+// import { useClerk } from "@clerk/clerk-react";
+// import { useRouter } from "next/navigation"; // Wykorzystujemy `next/router`
+
+// export const LogoutButton = () => {
+//   const { signOut } = useClerk();
+//   const router = useRouter();
+
+//   const handleLogout = async () => {
+//     await signOut(); // Wylogowanie użytkownika
+//     router.push("/"); // Przekierowanie na stronę główną po wylogowaniu
+//   };
+
+//   return (
+//     <button
+//       onClick={handleLogout}
+//       className="bg-red-600 text-white p-2 rounded"
+//     >
+//       Log out
+//     </button>
+//   );
+// };

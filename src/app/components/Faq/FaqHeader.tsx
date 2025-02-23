@@ -5,9 +5,10 @@ export function FaqHeader() {
         Frequently Asked Questions
       </h2>
       <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        soluta assumenda accusantium temporibus beatae praesentium
-        exercitationem esse fugit expedita nemo.
+        🎬 Got questions? We’ve got answers! 🎬 <br />
+        Welcome to the MovieGo FAQ! Here, you’ll find answers to common
+        questions about our app, features, and recommendations. Check below for
+        details—if you need more help, feel free to reach out! 🍿✨
       </p>
     </div>
   );

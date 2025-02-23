@@ -79,12 +79,12 @@ export function Navbar() {
           </div>
 
           <div className="absolute inset-y-0 right-0 flex items-center justify-center space-x-4 hidden sm:flex">
-            <Link href="/signup">
+            <Link href="/sign-up">
               <button className="bg-[#ff433dd5] rounded-md px-4 py-2 text-sm font-medium text-neutral-300">
                 Sign Up
               </button>
             </Link>
-            <Link href="/login">
+            <Link href="/sign-in">
               <button className="rounded-md px-4 py-2 text-sm font-medium text-neutral-100 hover:bg-neutral-800">
                 Log In
               </button>
@@ -122,12 +122,12 @@ export function Navbar() {
               {item.name}
             </DisclosureButton>
           ))}
-          <Link href="/signup">
+          <Link href="/sign-up">
             <DisclosureButton className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-white bg-[#ff433dd5] hover:bg-[#ff433dd5]/90 mb-4">
               Sign Up
             </DisclosureButton>
           </Link>
-          <Link href="/login">
+          <Link href="/sign-in">
             <DisclosureButton className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-white bg-neutral-900 hover:bg-neutral-800">
               Log In
             </DisclosureButton>

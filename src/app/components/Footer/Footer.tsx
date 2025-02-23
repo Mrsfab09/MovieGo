@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import Image from "next/image";
 
 export function Footer() {
@@ -5,8 +6,8 @@ export function Footer() {
     <footer className="bg-transparent rounded-lg shadow dark:bg-transparent m-4 relative">
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
           >
             <Image
@@ -18,7 +19,7 @@ export function Footer() {
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               MovieGo
             </span>
-          </a>
+          </Link>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
             <li>
               <a href="#" className="hover:underline me-4 md:me-6">

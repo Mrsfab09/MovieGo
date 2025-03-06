@@ -1,26 +1,40 @@
-// app/dashboard/page.tsx
-"use server"; // Upewnij się, że jest to komponent serwerowy
-
-import { auth } from "@clerk/nextjs/server"; // Importuj auth z Clerk
-import LogoutButton from "../components/LogoutButton/LogoutButton";
-// import { AlertTest } from "../components/AlertTest/AlertTest";
+import { auth } from '@clerk/nextjs/server';
 import { Page404 } from "../components/Page404/Page404";
+import LogoutButton from "../components/LogoutButton/LogoutButton";
 
+// Typowanie dla user
+type User = {
+  id: string;
+  email: string;
+};
+
+// Komponent serverowy (renderowany po stronie serwera)
 export default async function DashboardPage() {
   try {
-    const { userId } = await auth(); 
+    // Uzyskanie danych użytkownika za pomocą Clerk
+    const { userId, user } = await auth();
 
-    if (!userId) {
+    // Jeśli użytkownik nie jest zalogowany
+    if (!userId || !user) {
       return <Page404 />;
     }
 
+    // Zbieramy dane użytkownika
+    const userData: User = {
+      id: userId,
+      email: user.email || "",
+    };
+
+    // Zwracamy dashboard z danymi użytkownika
     return (
       <>
-        <p>Witaj, {userId}!</p> <LogoutButton />
+        <p>Witaj, {userData.id}!</p>
+        <p>Email: {userData.email}</p>
+        <LogoutButton />
       </>
     );
   } catch (error) {
-    console.error("Błąd podczas logowania", error);
-    return <p>Wystąpił błąd podczas logowania.</p>;
+    console.error('Błąd podczas logowania:', error);
+    return <Page404 />;
   }
 }

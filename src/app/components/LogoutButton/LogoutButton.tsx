@@ -1,11 +1,15 @@
 import { UserButton } from "@clerk/nextjs";
+import Sidebar from "../SideBar/SideBar";
 
 export default function LogoutButton() {
   return (
-    <nav className="flex justify-between p-4 bg-gray-800 text-white">
-      <h1>Movie Go</h1>
-      <UserButton afterSignOutUrl="/" />
-    </nav>
+    <>
+      <nav className="flex justify-between p-4 bg-neutral-900 text-white">
+        <h1>Movie Go</h1>
+        <UserButton afterSignOutUrl="/" />
+      </nav>
+      <Sidebar />
+    </>
   );
 }
 

@@ -94,12 +94,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             label="Settings"
             href="/settings"
           />
-          {isLoaded && user && (
+          {isLoaded && user ? (
             <SidebarItem
               icon={<LogOut size={24} />}
               label="Logout"
               href="/logout"
             />
+          ) : (
+            <p>Loading or no user found</p>
           )}
         </div>
       </aside>

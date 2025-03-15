@@ -13,7 +13,6 @@ import {
   Bookmark,
   Settings,
   LogOut,
-  X,
 } from "lucide-react";
 import SidebarItem from "./SidebarItem";
 
@@ -22,33 +21,17 @@ interface SidebarProps {
   onClose: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const { isLoaded, user } = useUser();
 
   return (
     <>
-      {/* Mobile overlay */}
-      {isOpen && (
-        <div
-          className="md:hidden fixed inset-0 bg-neutral-950/80 z-40"
-          onClick={onClose}
-        ></div>
-      )}
-
-      {/* Sidebar */}
-      <aside
-        className={`fixed top-0 bottom-0 left-0 w-16 bg-neutral-950/50 border-r border-neutral-800 z-50 flex flex-col transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-        }`}
-      >
+      {/* Desktop Sidebar - Hidden on mobile */}
+      <aside className="hidden md:flex fixed top-0 bottom-0 left-0 w-16 bg-neutral-950/50 border-r border-neutral-800 z-50 flex-col">
         <div className="flex justify-center items-center h-16 border-b border-neutral-800">
           <Link href="/" className="text-white font-bold">
             <Film size={28} className="text-red-500" />
           </Link>
-        </div>
-
-        <div className="md:hidden absolute top-4 right-3" onClick={onClose}>
-          <X size={20} className="text-gray-400" />
         </div>
 
         <nav className="flex-1 py-6 flex flex-col items-center space-y-5">
@@ -101,12 +84,44 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               href="/logout"
             />
           ) : (
-            <p>Loading or no user found</p>
+            <SidebarItem
+              icon={<LogOut size={24} />}
+              label="Login"
+              href="/login"
+            />
           )}
         </div>
       </aside>
+
+      {/* Mobile Bottom Navigation Bar */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-neutral-950/90 border-t border-neutral-800 flex items-center justify-around z-50">
+        <Link href="/" className="flex flex-col items-center">
+          <Home size={22} className="text-white" />
+          <span className="text-xs text-gray-400 mt-1">Home</span>
+        </Link>
+
+        <Link href="/search" className="flex flex-col items-center">
+          <Search size={22} className="text-gray-400" />
+          <span className="text-xs text-gray-400 mt-1">Search</span>
+        </Link>
+
+        <Link href="/movies" className="flex flex-col items-center">
+          <Film size={22} className="text-gray-400" />
+          <span className="text-xs text-gray-400 mt-1">Movies</span>
+        </Link>
+
+        <Link href="/tv" className="flex flex-col items-center">
+          <Tv size={22} className="text-gray-400" />
+          <span className="text-xs text-gray-400 mt-1">TV</span>
+        </Link>
+
+        <Link href="/settings" className="flex flex-col items-center">
+          <Settings size={22} className="text-gray-400" />
+          <span className="text-xs text-gray-400 mt-1">Settings</span>
+        </Link>
+      </div>
     </>
   );
-};
+}
 
 export default Sidebar;

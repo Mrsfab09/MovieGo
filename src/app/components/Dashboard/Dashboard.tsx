@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { Play, TrendingUp, Calendar, Heart, Menu } from "lucide-react";
@@ -16,6 +16,7 @@ import {
   upcomingMovies,
   continueWatching,
 } from "../../data/mockData";
+import Image from "next/image";
 
 export function Dashboard() {
   const { isLoaded, user } = useUser();
@@ -26,17 +27,17 @@ export function Dashboard() {
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className="flex-1 md:ml-16">
-        {/* Mobile menu button */}
-        <div className="md:hidden fixed top-4 left-4 z-30">
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="p-2 text-white bg-neutral-800 rounded-lg"
-          >
-            <Menu size={20} />
-          </button>
+        <div className="md:hidden z-30 flex items-center justify-center px-4 py-2 bg-neutral-950">
+          <Image
+            width={200}
+            height={100}
+            src={"/assets/logoGo.png"}
+            alt="movie logo"
+            className="object-contain h-14 w-auto"
+          />
         </div>
 
-        <main className="pt-16 pb-8 bg-neutral-950 text-white min-h-screen">
+        <main className="pt-1 pb-8 bg-neutral-950 text-white min-h-screen">
           {/* Featured Movie */}
           <FeaturedMovie movie={featuredMovie} />
 
@@ -50,10 +51,7 @@ export function Dashboard() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                   {continueWatching.map((movie) => (
                     <div key={movie.id} className="relative">
-                      <MovieCard
-                        title={movie.title}
-                        posterUrl={movie.posterUrl}
-                      />
+                      <MovieCard />
                       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800">
                         <div
                           className="h-full bg-red-600"
@@ -74,12 +72,7 @@ export function Dashboard() {
             >
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {trendingMovies.map((movie) => (
-                  <MovieCard
-                    key={movie.id}
-                    title={movie.title}
-                    posterUrl={movie.posterUrl}
-                    rating={movie.rating}
-                  />
+                  <MovieCard key={movie.id} />
                 ))}
               </div>
             </MovieRow>
@@ -93,10 +86,7 @@ export function Dashboard() {
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {upcomingMovies.map((movie) => (
                   <div key={movie.id} className="relative">
-                    <MovieCard
-                      title={movie.title}
-                      posterUrl={movie.posterUrl}
-                    />
+                    <MovieCard />
                     <div className="absolute top-2 right-2 bg-purple-600 text-white text-xs py-1 px-2 rounded-md">
                       {movie.releaseDate}
                     </div>

@@ -1,4 +1,4 @@
-import { Box } from "../Box/Box";
+import { Box } from "./FeatureBox";
 
 export function Features() {
   return (

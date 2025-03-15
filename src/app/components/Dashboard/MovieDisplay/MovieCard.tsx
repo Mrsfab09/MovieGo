@@ -1,10 +1,96 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
-import { MovieCardProps } from "../../../types/movieTypes";
+import Link from "next/link";
 
+// Keep your original MovieCardProps
+interface MovieCardProps {
+  title: string;
+  posterUrl: string;
+  rating?: string;
+}
+
+// Define TMDB Movie interface
+interface TMDBMovie {
+  id: number;
+  title: string;
+  poster_path: string | null;
+  vote_average: number;
+}
+
+// Create a new component that fetches and displays movies
+const MovieGrid: React.FC = () => {
+  const [movies, setMovies] = useState<TMDBMovie[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY; // Replace with your actual API key
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setMovies(data.results);
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "An unknown error occurred";
+        setError(errorMessage);
+        console.error("Error fetching movies:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMovies();
+  }, [API_KEY]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[300px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-red-500"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center p-4">
+        <p className="text-red-500">Error loading movies: {error}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+      {movies.map((movie) => (
+        <Link href={`/movies/${movie.id}`} key={movie.id}>
+          <MovieCard
+            title={movie.title}
+            posterUrl={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : "/assets/no-poster.png"
+            }
+            rating={movie.vote_average.toFixed(1)}
+          />
+        </Link>
+      ))}
+    </div>
+  );
+};
+
+// Keep your original MovieCard component
 const MovieCard: React.FC<MovieCardProps> = ({ title, posterUrl, rating }) => (
   <div className="relative group">
     <div className="w-full aspect-[2/3] relative rounded-lg overflow-hidden">
@@ -29,4 +115,6 @@ const MovieCard: React.FC<MovieCardProps> = ({ title, posterUrl, rating }) => (
   </div>
 );
 
-export default MovieCard;
+// Export both components
+export { MovieCard, MovieGrid };
+export default MovieGrid; // Default export is the grid that displays movies from TMDB

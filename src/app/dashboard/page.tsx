@@ -1,8 +1,8 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
-import LogoutButton from "../components/LogoutButton/LogoutButton";
 import { Page404 } from "../components/Page404/Page404";
+import { Dashboard } from "../components/Dashboard/Dashboard";
 
 export default async function DashboardPage() {
   try {
@@ -14,7 +14,7 @@ export default async function DashboardPage() {
 
     return (
       <>
-        <LogoutButton />
+        <Dashboard />
       </>
     );
   } catch (error) {

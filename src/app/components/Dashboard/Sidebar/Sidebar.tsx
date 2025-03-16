@@ -38,7 +38,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           <SidebarItem
             icon={<Home size={24} />}
             label="Home"
-            href="/"
+            href="/dashboard"
             active={true}
           />
           <SidebarItem
@@ -95,7 +95,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
       {/* Mobile Bottom Navigation Bar */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-neutral-950/90 border-t border-neutral-800 flex items-center justify-around z-50">
-        <Link href="/" className="flex flex-col items-center">
+        <Link href="/dashboard" className="flex flex-col items-center">
           <Home size={22} className="text-white" />
           <span className="text-xs text-gray-400 mt-1">Home</span>
         </Link>

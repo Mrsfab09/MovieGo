@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Sidebar from "../components/Dashboard/Sidebar/Sidebar";
 
 // Define the Movie type
 interface Movie {
@@ -18,6 +19,8 @@ export default function Movies() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
   const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`;
@@ -82,62 +85,69 @@ export default function Movies() {
   }
 
   return (
-    <div className="px-4 py-6 md:px-8">
-      <h1 className="text-2xl md:text-3xl font-bold mb-6">Popular Movies</h1>
+    <>
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <main className="px-4 py-6 md:px-8 flex-1 md:ml-16 bg-neutral-950">
+        <h1 className="text-2xl md:text-3xl font-bold mb-6">Popular Movies</h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
-        {movies.map((movie) => (
-          <Link href={`/movies/${movie.id}`} key={movie.id}>
-            <div className="bg-neutral-900 rounded-lg overflow-hidden shadow-lg hover:shadow-red-500/20 transition duration-300 h-full w-48">
-              <div className="relative w-48 h-72">
-                {movie.poster_path ? (
-                  <Image
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                ) : (
-                  <div className="flex justify-center items-center h-full bg-neutral-800">
-                    <span>No image available</span>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-y-4 gap-x-2 md:gap-y-6 md:gap-x-1">
+          {movies.map((movie) => (
+            <Link href={`/movies/${movie.id}`} key={movie.id}>
+              <div className="bg-neutral-900 rounded-lg overflow-hidden shadow-lg hover:shadow-red-500/20 transition duration-300 h-full w-48">
+                <div className="relative w-48 h-72">
+                  {movie.poster_path ? (
+                    <Image
+                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                      alt={movie.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="flex justify-center items-center h-full bg-neutral-800">
+                      <span>No image available</span>
+                    </div>
+                  )}
+                  <div className="absolute top-2 right-2 bg-red-500 text-white text-sm font-bold px-2 py-1 rounded-md">
+                    {movie.vote_average?.toFixed(1)}
                   </div>
-                )}
-                <div className="absolute top-2 right-2 bg-red-500 text-white text-sm font-bold px-2 py-1 rounded-md">
-                  {movie.vote_average?.toFixed(1)}
+                </div>
+                <div className="p-4">
+                  <h2 className="font-bold text-white truncate">
+                    {movie.title}
+                  </h2>
+                  <p className="text-gray-400 text-sm mt-1">
+                    {movie.release_date?.substring(0, 4)}
+                  </p>
                 </div>
               </div>
-              <div className="p-4">
-                <h2 className="font-bold text-white truncate">{movie.title}</h2>
-                <p className="text-gray-400 text-sm mt-1">
-                  {movie.release_date?.substring(0, 4)}
-                </p>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
 
-      <div className="mt-10 flex justify-center gap-4">
-        <button
-          onClick={handlePrevPage}
-          disabled={page === 1}
-          className={`px-4 py-2 rounded-md ${
-            page === 1
-              ? "bg-neutral-800 text-neutral-500 cursor-not-allowed"
-              : "bg-neutral-800 text-white hover:bg-red-500 transition"
-          }`}
-        >
-          Previous
-        </button>
-        <span className="flex items-center px-4 font-medium">Page {page}</span>
-        <button
-          onClick={handleNextPage}
-          className="px-4 py-2 rounded-md bg-neutral-800 text-white hover:bg-red-500 transition"
-        >
-          Next
-        </button>
-      </div>
-    </div>
+        <div className="mt-10 flex justify-center gap-4">
+          <button
+            onClick={handlePrevPage}
+            disabled={page === 1}
+            className={`px-4 py-2 rounded-md ${
+              page === 1
+                ? "bg-neutral-800 text-neutral-500 cursor-not-allowed"
+                : "bg-neutral-800 text-white hover:bg-red-500 transition"
+            }`}
+          >
+            Previous
+          </button>
+          <span className="flex items-center px-4 font-medium">
+            Page {page}
+          </span>
+          <button
+            onClick={handleNextPage}
+            className="px-4 py-2 rounded-md bg-neutral-800 text-white hover:bg-red-500 transition"
+          >
+            Next
+          </button>
+        </div>
+      </main>
+    </>
   );
 }

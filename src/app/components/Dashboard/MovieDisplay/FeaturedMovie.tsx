@@ -26,7 +26,9 @@ export function FeaturedMovie({ movie }: FeaturedMovieProps) {
         <div className="md:flex md:items-end">
           <div className="hidden md:block w-48 h-72 rounded-lg overflow-hidden shadow-lg mr-6 flex-shrink-0">
             <Image
-              src={movie.posterUrl}
+              src={
+                "https://media.themoviedb.org/t/p/w220_and_h330_face/57v4gE3Dx6TViwIe1BiC2rgghhs.jpg"
+              }
               alt={movie.title}
               width={192}
               height={288}

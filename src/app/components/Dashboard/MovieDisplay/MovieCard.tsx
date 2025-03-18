@@ -26,7 +26,8 @@ const MovieGrid: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY; // Replace with your actual API key
+  const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+  const BASE_URL = "https://api.themoviedb.org/3";
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -73,7 +74,7 @@ const MovieGrid: React.FC = () => {
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-      {movies.map((movie) => (
+      {movies.slice(0, 6).map((movie) => (
         <Link href={`/movies/${movie.id}`} key={movie.id}>
           <MovieCard
             title={movie.title}

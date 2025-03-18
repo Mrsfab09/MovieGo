@@ -15,6 +15,7 @@ import {
   LogOut,
 } from "lucide-react";
 import SidebarItem from "./SidebarItem";
+import { useRouter, usePathname } from "next/navigation";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -22,11 +23,12 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
+  const router = useRouter();
+  const pathname = usePathname();
   const { isLoaded, user } = useUser();
 
   return (
     <>
-      {/* Desktop Sidebar - Hidden on mobile */}
       <aside className="hidden md:flex fixed top-0 bottom-0 left-0 w-16 bg-neutral-950/50 border-r border-neutral-800 z-50 flex-col">
         <div className="flex justify-center items-center h-16 border-b border-neutral-800">
           <Link href="/" className="text-white font-bold">
@@ -39,34 +41,44 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             icon={<Home size={24} />}
             label="Home"
             href="/dashboard"
-            active={true}
+            active={pathname === "/dashboard"}
           />
           <SidebarItem
             icon={<Search size={24} />}
             label="Search"
             href="/search"
+            active={pathname === "/search"}
           />
           <SidebarItem
             icon={<Film size={24} />}
             label="Movies"
             href="/movies"
+            active={pathname === "/movies"}
           />
-          <SidebarItem icon={<Tv size={24} />} label="TV Shows" href="/tv" />
+          <SidebarItem
+            icon={<Tv size={24} />}
+            label="TV Shows"
+            href="/tv"
+            active={pathname === "/tv"}
+          />
           <SidebarItem
             icon={<TrendingUp size={24} />}
             label="Trending"
             href="/trending"
+            active={pathname === "/trending"}
           />
           <SidebarItem
             icon={<Calendar size={24} />}
             label="Coming Soon"
             href="/upcoming"
+            active={pathname === "/upcoming"}
           />
           {isLoaded && user && (
             <SidebarItem
               icon={<Bookmark size={24} />}
               label="My List"
               href="/favorites"
+              active={pathname === "/favorites"}
             />
           )}
         </nav>
@@ -76,6 +88,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             icon={<Settings size={24} />}
             label="Settings"
             href="/settings"
+            active={pathname === "/settings"}
           />
           {isLoaded && user ? (
             <SidebarItem
@@ -123,5 +136,3 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     </>
   );
 }
-
-export default Sidebar;

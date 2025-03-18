@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { Play, TrendingUp, Calendar, Heart, Menu } from "lucide-react";
 
-import Sidebar from "./Sidebar/Sidebar";
+import { Sidebar } from "./Sidebar/Sidebar";
 import MovieCard from "./MovieDisplay/MovieCard";
 import MovieRow from "./MovieDisplay/MovieRow";
 import { FeaturedMovie } from "./MovieDisplay/FeaturedMovie";
@@ -68,11 +68,10 @@ export function Dashboard() {
             <MovieRow
               title="Trending Now"
               icon={<TrendingUp size={20} className="text-red-500" />}
-              showAll="/movies?category=trending"
             >
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 {trendingMovies.map((movie) => (
-                  <MovieCard key={movie.id} />
+                  <MovieCard key={trendingMovies[0].id} />
                 ))}
               </div>
             </MovieRow>
@@ -81,7 +80,7 @@ export function Dashboard() {
             <MovieRow
               title="Coming Soon"
               icon={<Calendar size={20} className="text-purple-500" />}
-              showAll="/upcoming"
+              showAll="/movies?category=upcoming"
             >
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {upcomingMovies.map((movie) => (

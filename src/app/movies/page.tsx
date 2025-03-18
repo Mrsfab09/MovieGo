@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Sidebar from "../components/Dashboard/Sidebar/Sidebar";
+import { Sidebar } from "../components/Dashboard/Sidebar/Sidebar";
 
 // Define the Movie type
 interface Movie {

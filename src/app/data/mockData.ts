@@ -27,30 +27,6 @@ export const trendingMovies: TrendingMovie[] = [
     posterUrl: "/assets/movies_resized.png",
     rating: 8.2,
   },
-  {
-    id: 2,
-    title: "Everything Everywhere All at Once",
-    posterUrl: "/assets/movies_resized.png",
-    rating: 8.9,
-  },
-  {
-    id: 3,
-    title: "Top Gun: Maverick",
-    posterUrl: "/assets/movies_resized.png",
-    rating: 8.3,
-  },
-  {
-    id: 4,
-    title: "The Killer",
-    posterUrl: "/assets/movies_resized.png",
-    rating: 7.8,
-  },
-  {
-    id: 5,
-    title: "Poor Things",
-    posterUrl: "/assets/movies_resized.png",
-    rating: 8.5,
-  },
 ];
 
 // Mock data for upcoming movies

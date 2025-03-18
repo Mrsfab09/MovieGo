@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Sidebar from "../components/Dashboard/Sidebar/Sidebar";
+import { Sidebar } from "../components/Dashboard/Sidebar/Sidebar";
 
 export default function Settings() {
   const [sidebarOpen, setSidebarOpen] = useState(false);

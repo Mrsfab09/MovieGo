@@ -31,9 +31,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     <>
       <aside className="hidden md:flex fixed top-0 bottom-0 left-0 w-16 bg-neutral-950/50 border-r border-neutral-800 z-50 flex-col">
         <div className="flex justify-center items-center h-16 border-b border-neutral-800">
-          <Link href="/" className="text-white font-bold">
-            <Film size={28} className="text-red-500" />
-          </Link>
+          <Film size={28} className="text-red-500" />
         </div>
 
         <nav className="flex-1 py-6 flex flex-col items-center space-y-5">

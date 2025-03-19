@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Sidebar } from "../components/Dashboard/Sidebar/Sidebar";
+import { NoImage } from "../components/NoImage/NoImage";
+// import { MovieCard } from "../components/Dashboard/MovieDisplay/MovieCard";
+// import { trendingMovies } from "../data/mockData";
+// import MovieRow from "../components/Dashboard/MovieDisplay/MovieRow";
+// import { TrendingUp } from "lucide-react";
 
 // Define the Movie type
 interface Movie {
@@ -16,6 +21,7 @@ interface Movie {
 
 export default function Movies() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  // const [movies, setMovies] = useState<TMDBMovie[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
@@ -91,6 +97,26 @@ export default function Movies() {
         <h1 className="text-2xl md:text-3xl font-bold mb-6">Popular Movies</h1>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-y-4 gap-x-2 md:gap-y-6 md:gap-x-1">
+          {/* TODO */}
+          {/* <MovieRow
+            title="Trending Now"
+            icon={<TrendingUp size={20} className="text-red-500" />}
+          >
+            <div className="grid grid-cols-1 gap-4">
+              {trendingMovies.map((movie) => (
+                 <MovieCard
+                 key={trendingMovies[0].id}
+                            title={movie.title}
+                            posterUrl={
+                              movie.poster_path
+                                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                                : ""
+                            }
+                            rating={movie.vote_average.toFixed(1)}
+                          />
+              ))}
+            </div>
+          </MovieRow> */}
           {movies.map((movie) => (
             <Link href={`/movies/${movie.id}`} key={movie.id}>
               <div className="bg-neutral-900 rounded-lg overflow-hidden shadow-lg hover:shadow-red-500/20 transition duration-300 h-full w-48">
@@ -104,9 +130,7 @@ export default function Movies() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : (
-                    <div className="flex justify-center items-center h-full bg-neutral-800">
-                      <span>No image available</span>
-                    </div>
+                    <NoImage />
                   )}
                   <div className="absolute top-2 right-2 bg-red-500 text-white text-sm font-bold px-2 py-1 rounded-md">
                     {movie.vote_average?.toFixed(1)}

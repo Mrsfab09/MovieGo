@@ -42,8 +42,9 @@ export interface MovieRowProps {
 }
 
 export interface SidebarItemProps {
-  icon: ReactNode;
-  label: string;
+  icon?: ReactNode;
+  label?: string;
   href: string;
   active?: boolean;
+  children?: React.ReactNode;
 }

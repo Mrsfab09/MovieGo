@@ -1,7 +1,7 @@
 "use client";
 
-import { CookingWeb } from "../components/CookingWeb/CookingWeb";
+import { Page404 } from "../components/Page404/Page404";
 
 export default function Contact() {
-  return <CookingWeb />;
+  return <Page404 />;
 }

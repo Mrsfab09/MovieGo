@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import Link from "next/link";
+import { NoImage } from "../../NoImage/NoImage";
 
 // Keep your original MovieCardProps
 interface MovieCardProps {
@@ -81,7 +82,7 @@ const MovieGrid: React.FC = () => {
             posterUrl={
               movie.poster_path
                 ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                : "/assets/no-poster.png"
+                : ""
             }
             rating={movie.vote_average.toFixed(1)}
           />
@@ -94,13 +95,17 @@ const MovieGrid: React.FC = () => {
 // Keep your original MovieCard component
 const MovieCard: React.FC<MovieCardProps> = ({ title, posterUrl, rating }) => (
   <div className="relative group">
-    <div className="w-full aspect-[2/3] relative rounded-lg overflow-hidden">
-      <Image
-        src={posterUrl}
-        alt={title}
-        fill
-        className="object-cover transition-transform duration-300 group-hover:scale-105"
-      />
+    <div className="w-full aspect-[2/3] relative rounded-lg overflow-hidden border border-neutral-900">
+      {posterUrl ? (
+        <Image
+          src={posterUrl}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      ) : (
+        <NoImage />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="absolute bottom-0 left-0 right-0 p-3">
           <h3 className="text-sm font-medium text-white truncate">{title}</h3>

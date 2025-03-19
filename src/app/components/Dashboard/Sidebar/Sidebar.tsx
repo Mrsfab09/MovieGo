@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { useUser } from "@clerk/nextjs";
+import { SignOutButton, useUser } from "@clerk/nextjs";
 import {
   Film,
   Home,
@@ -89,11 +89,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             active={pathname === "/settings"}
           />
           {isLoaded && user ? (
-            <SidebarItem
-              icon={<LogOut size={24} />}
-              label="Logout"
-              href="/logout"
-            />
+            <SidebarItem href="">
+              <SignOutButton>
+                <LogOut size={24} />
+              </SignOutButton>
+            </SidebarItem>
           ) : (
             <SidebarItem
               icon={<LogOut size={24} />}

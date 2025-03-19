@@ -42,15 +42,17 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 overflow-x-hidden">
         <div className="relative flex h-16 items-center">
           <div className="absolute inset-y-0 left-0 flex items-center">
-            <div className="flex shrink-0 items-center">
-              <Link href="/">
+            <div className="flex items-center space-x-2">
+              <Link href="/" className="flex items-center space-x-2">
                 <Image
-                  width={200}
-                  height={200}
-                  alt="logoMovieGo"
-                  src="/assets/logoGo.png"
-                  className="cursor-pointer"
+                  width={30}
+                  height={30}
+                  src="/film.svg"
+                  alt="MovieGo Logo"
                 />
+                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                  MovieGo
+                </span>
               </Link>
             </div>
           </div>

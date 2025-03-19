@@ -8,6 +8,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   label,
   href,
   active = false,
+  children,
 }) => (
   <Link href={href} className="block">
     <div
@@ -19,6 +20,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       title={label}
     >
       <div className="text-center">{icon}</div>
+      {children && <div>{children}</div>}
     </div>
   </Link>
 );

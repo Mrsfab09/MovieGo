@@ -2,16 +2,17 @@
 
 import { ReactNode, useState } from "react";
 import { Sidebar } from "../components/Dashboard/Sidebar/Sidebar";
-import { UserProfile, useUser } from "@clerk/clerk-react";
-import Image from "next/image";
+import { UserProfile } from "@clerk/clerk-react";
 
-interface SettingsProps {
-  emailAddresses: ReactNode;
-}
+/*
+******************************************************
+ nazwa funkcji: Settings
+ opis: Komponent wyswietlajacy strone ustawień użytkownika
+*****************************************************
+*/
 
 export default function Settings() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { user } = useUser();
 
   return (
     <>

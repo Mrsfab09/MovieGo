@@ -6,6 +6,13 @@ interface FaqItemProps {
   onMouseEnter: (index: number) => void;
 }
 
+/*
+******************************************************
+ nazwa funkcji: FaqItem
+ opis: Komponent wyswietlajacy pojedynczy element sekcji Faq
+*****************************************************
+*/
+
 export function FaqItem({
   faq,
   index,
@@ -15,7 +22,7 @@ export function FaqItem({
   return (
     <div
       className="flex sm:flex-row items-start p-4 mb-4 cursor-pointer"
-      onMouseEnter={() => onMouseEnter(index)} // Keep the hovered index when hovering
+      onMouseEnter={() => onMouseEnter(index)}
     >
       {/* Column for questions */}
       <div className="w-full sm:w-2/3 space-y-4">

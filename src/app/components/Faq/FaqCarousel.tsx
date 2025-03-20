@@ -7,6 +7,13 @@ interface FaqCarouselProps {
   handleScroll: () => void;
 }
 
+/*
+******************************************************
+ nazwa funkcji: FaqCarousel
+ opis: Komponent wyswietlajacy sekcje FAQ w widoku mobilnym
+*****************************************************
+*/
+
 export function FaqCarousel({
   faqs,
   mobileIndex,

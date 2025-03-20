@@ -7,6 +7,13 @@ interface FaqListProps {
   onMouseEnter: (index: number) => void;
 }
 
+/*
+******************************************************
+ nazwa funkcji: FaqList
+ opis: Komponent wyswietlajacy liste elementow sekcji FAQ
+*****************************************************
+*/
+
 export function FaqList({
   faqs,
   hoveredIndex,

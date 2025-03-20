@@ -1,4 +1,11 @@
-import { Box } from "./FeatureBox";
+import { FeatureBox } from "./FeatureBox";
+
+/*
+******************************************************
+ nazwa funkcji: Features
+ opis: Komponent wyswietlajacy sekcje Features
+*****************************************************
+*/
 
 export function Features() {
   return (
@@ -15,7 +22,7 @@ export function Features() {
               exercitationem esse fugit expedita nemo.
             </p>
           </div>
-          <Box />
+          <FeatureBox />
         </div>
       </div>
     </>

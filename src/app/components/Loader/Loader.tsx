@@ -1,25 +1,20 @@
-import { useEffect, useState } from 'react';
+"use client";
+import { Loader2 } from "lucide-react";
 
-export function Loader () {
-  const [isLoading, setIsLoading] = useState(true);
+/*
+******************************************************
+ nazwa funkcji: AuthLoading
+ opis: Komponent wyswietlajacy animacje ladowania po zalogowaniu, narazie nie używany 
+*****************************************************
+*/
 
-  // Symulacja ładowania (np. żądanie API)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false); 
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
+export default function AuthLoading() {
   return (
-    <div className="flex justify-center items-center h-screen bg-black">
-      {isLoading ? (
-        <div className="w-24 h-24 border-8 border-t-orange-500 border-gray-200 rounded-full animate-spin"></div>
-      ) : (
-        <div className="text-white text-2xl font-semibold">
-          Welcome to Movie Go!
-        </div>
-      )}
+    <div className="fixed inset-0 flex items-center justify-center bg-neutral-900 text-white">
+      <div className="flex flex-col items-center gap-4 animate-fade">
+        <Loader2 className="h-12 w-12 animate-spin text-blue-500" />
+        <p className="text-lg font-semibold">Logowanie...</p>
+      </div>
     </div>
   );
-};
+}

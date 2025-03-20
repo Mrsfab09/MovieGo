@@ -1,6 +1,13 @@
 import Link from "next/link"; // Poprawiony import
 import Image from "next/image";
 
+/*
+******************************************************
+ nazwa funkcji: Footer
+ opis: Komponent wyswietlajacy stopke strony
+*****************************************************
+*/
+
 export function Footer() {
   return (
     <footer className="bg-transparent rounded-lg shadow dark:bg-transparent m-4 relative">

@@ -21,6 +21,13 @@ function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
+/*
+******************************************************
+ nazwa funkcji: Navbar
+ opis: Komponent wyswietlajacy pasek nawigacyjny na stronie głównej
+*****************************************************
+*/
+
 export function Navbar() {
   const [navigation, setNavigation] = useState(initialNavigation);
 

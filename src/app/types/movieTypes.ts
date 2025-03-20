@@ -1,5 +1,12 @@
 import { ReactNode } from "react";
 
+/*
+******************************************************
+ nazwa funkcji: movieTypes
+ opis: To plik to przechowywania różnych typów dla filmów
+*****************************************************
+*/
+
 export interface Movie {
   id: number;
   title: string;

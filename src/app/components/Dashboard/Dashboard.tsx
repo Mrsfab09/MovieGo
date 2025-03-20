@@ -18,6 +18,13 @@ import {
 } from "../../data/mockData";
 import Image from "next/image";
 
+/*
+******************************************************
+ nazwa funkcji: Dashboard
+ opis: Komponent odpowedzialny za głowne menu aplikacji po zalgowaniu 
+*****************************************************
+*/
+
 export function Dashboard() {
   const { isLoaded, user } = useUser();
   const [sidebarOpen, setSidebarOpen] = useState(false);

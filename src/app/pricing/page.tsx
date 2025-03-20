@@ -1,5 +1,5 @@
 "use client";
-// import { Carousel } from "../components/Carousel/Carousel";
+
 import { CheckIcon } from "@heroicons/react/20/solid";
 
 const tiers = [
@@ -53,6 +53,13 @@ const tiers = [
 function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(" ");
 }
+
+/*
+******************************************************
+ nazwa funkcji: Pricing
+ opis: Komponent wyswietlajacy strone planów subskrypcji 
+*****************************************************
+*/
 
 export default function Pricing() {
   return (

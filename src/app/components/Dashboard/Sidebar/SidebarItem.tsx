@@ -3,6 +3,13 @@
 import Link from "next/link";
 import { SidebarItemProps } from "../../../types/movieTypes";
 
+/*
+******************************************************
+ nazwa funkcji: SidebarItem
+ opis: Komponent wyswietlajacy pojedyncze elementy bocznego menu nawigacyjnego
+*****************************************************
+*/
+
 const SidebarItem: React.FC<SidebarItemProps> = ({
   icon,
   label,

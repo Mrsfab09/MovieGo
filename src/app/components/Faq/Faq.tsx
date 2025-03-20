@@ -6,6 +6,13 @@ import { FaqList } from "./FaqList";
 import { FaqCarousel } from "./FaqCarousel";
 import { faqs } from "../../data/faqData";
 
+/*
+******************************************************
+ nazwa funkcji: Faq
+ opis: Komponent wyswietlajacy sekcje FAQ 
+*****************************************************
+*/
+
 export function Faq() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
   const [mobileIndex, setMobileIndex] = useState<number>(0);

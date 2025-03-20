@@ -3,6 +3,13 @@ interface FaqDotsProps {
   activeIndex: number;
 }
 
+/*
+******************************************************
+ nazwa funkcji: FaqDots
+ opis: Komponent wyswietlajacy kropki potrzebne do widku mobilnego FaqCarousel
+*****************************************************
+*/
+
 export function FaqDots({ count, activeIndex }: FaqDotsProps) {
   return (
     <div className="flex justify-center mt-4 space-x-2">

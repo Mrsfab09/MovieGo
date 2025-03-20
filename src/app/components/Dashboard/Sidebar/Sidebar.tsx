@@ -22,6 +22,13 @@ interface SidebarProps {
   onClose: () => void;
 }
 
+/*
+******************************************************
+ nazwa funkcji: Sidebar
+ opis: Komponent wyswietlajacy boczne menu nawigacyjne w dashboard, czyli głownej stronie po zalogowaniu się do aplikacji 
+*****************************************************
+*/
+
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();

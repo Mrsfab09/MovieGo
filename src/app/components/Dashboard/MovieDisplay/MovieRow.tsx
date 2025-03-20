@@ -5,6 +5,13 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { MovieRowProps } from "../../../types/movieTypes";
 
+/*
+******************************************************
+ nazwa funkcji: MovieRow
+ opis: Komponent wyswietlajacy dynamiczne sekcje filmów
+*****************************************************
+*/
+
 const MovieRow: React.FC<MovieRowProps> = ({
   title,
   icon,

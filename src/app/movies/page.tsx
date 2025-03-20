@@ -5,12 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Sidebar } from "../components/Dashboard/Sidebar/Sidebar";
 import { NoImage } from "../components/NoImage/NoImage";
-// import { MovieCard } from "../components/Dashboard/MovieDisplay/MovieCard";
-// import { trendingMovies } from "../data/mockData";
-// import MovieRow from "../components/Dashboard/MovieDisplay/MovieRow";
-// import { TrendingUp } from "lucide-react";
-
-// Define the Movie type
 interface Movie {
   id: number;
   title: string;
@@ -18,6 +12,13 @@ interface Movie {
   vote_average: number;
   release_date: string;
 }
+
+/*
+******************************************************
+ nazwa funkcji: Movies
+ opis: Komponent wyswietlajacy strone z filmami, komponent łaczy się z API TMDB( czyli baza danych z filmami ) i wyswietla filmy  
+*****************************************************
+*/
 
 export default function Movies() {
   const [movies, setMovies] = useState<Movie[]>([]);

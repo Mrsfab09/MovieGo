@@ -1,3 +1,10 @@
+/*
+******************************************************
+ nazwa funkcji: FaqHeader
+ opis: Komponent wyswietlajacy opis sekcji Faq
+*****************************************************
+*/
+
 export function FaqHeader() {
   return (
     <div className="text-center max-w-2xl flex flex-col mx-auto sm:mb-8">

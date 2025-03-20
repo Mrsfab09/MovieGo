@@ -26,6 +26,18 @@ body {
   scrollbar-width: none;
 }
 
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.animate-fade {
+  animation: fade 0.5s ease-in-out forwards;
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;

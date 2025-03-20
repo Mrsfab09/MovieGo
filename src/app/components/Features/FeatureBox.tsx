@@ -1,6 +1,13 @@
 import Image from "next/image";
 
-export function Box() {
+/*
+******************************************************
+ nazwa funkcji: FeatureBox
+ opis: Komponent wyswietlajacy pojedynczy box dla sekcji Features
+*****************************************************
+*/
+
+export function FeatureBox() {
   const descriptions = [
     {
       src: "./adjustments.svg",

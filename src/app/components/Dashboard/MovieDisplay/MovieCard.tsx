@@ -6,14 +6,12 @@ import { Star } from "lucide-react";
 import Link from "next/link";
 import { NoImage } from "../../NoImage/NoImage";
 
-// Keep your original MovieCardProps
 interface MovieCardProps {
   title: string;
   posterUrl: string;
   rating?: string;
 }
 
-// Define TMDB Movie interface
 interface TMDBMovie {
   id: number;
   title: string;
@@ -21,7 +19,13 @@ interface TMDBMovie {
   vote_average: number;
 }
 
-// Create a new component that fetches and displays movies
+/*
+******************************************************
+ nazwa funkcji: MovieGrid
+ opis: Komponent wyswietlajacy siatke układu filmów 
+*****************************************************
+*/
+
 const MovieGrid: React.FC = () => {
   const [movies, setMovies] = useState<TMDBMovie[]>([]);
   const [loading, setLoading] = useState(true);
@@ -92,7 +96,13 @@ const MovieGrid: React.FC = () => {
   );
 };
 
-// Keep your original MovieCard component
+/*
+******************************************************
+ nazwa funkcji: MovieCard
+ opis: Komponent wyswietlajacy pojedynczy film w siatce
+*****************************************************
+*/
+
 const MovieCard: React.FC<MovieCardProps> = ({ title, posterUrl, rating }) => (
   <div className="relative group">
     <div className="w-full aspect-[2/3] relative rounded-lg overflow-hidden border border-neutral-900">
@@ -121,6 +131,5 @@ const MovieCard: React.FC<MovieCardProps> = ({ title, posterUrl, rating }) => (
   </div>
 );
 
-// Export both components
 export { MovieCard, MovieGrid };
-export default MovieGrid; // Default export is the grid that displays movies from TMDB
+export default MovieGrid;

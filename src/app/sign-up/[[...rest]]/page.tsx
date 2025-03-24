@@ -27,10 +27,28 @@ export default function SignUpPage() {
   return (
     <>
       <div className="flex flex-col justify-center items-center h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1200px] min-h-[750px] md:h-[700px] bg-neutral-900 rounded-lg shadow-xl border border-gray-700 overflow-hidden p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1400px] min-w-[1300px] min-h-[800px] md:h-[700px] bg-neutral-950 rounded-lg border border-neutral-900 overflow-hidden p-6">
           {/* Lewa część – Obrazek */}
-          <div className="relative hidden md:block w-full h-full opacity-80">
-            <Image
+          <div className="relative flex flex-col md:block w-full h-full gap-5 p-2">
+            <div className="flex flex-row gap-3">
+              <div className="w-10 h-10 rounded-full border-4 border-red-700 flex items-center justify-center mb-20 text-gray-400">
+                1
+              </div>
+              <span className="mt-2 text-gray-400">Personal data </span>
+            </div>
+            <div className="flex flex-row gap-3">
+              <div className="w-10 h-10 rounded-full border-4 border-red-700 flex items-center justify-center mb-20 text-gray-400">
+                2
+              </div>
+              <span className="mt-2 text-gray-400">Personal data </span>
+            </div>
+            <div className="flex flex-row gap-3">
+              <div className="w-10 h-10 rounded-full border-4 border-red-700 flex items-center justify-center mb-20 text-gray-400">
+                3
+              </div>
+              <span className="mt-2 text-gray-400">Personal data </span>
+            </div>
+            {/* <Image
               src="/assets/popcorn-cinema.jpg"
               alt="Popcorn Cinema"
               layout="fill"
@@ -38,7 +56,7 @@ export default function SignUpPage() {
               objectPosition="center"
               quality={75}
               loading="lazy"
-            />
+            /> */}
           </div>
 
           {/* Prawa część – Formularz */}
@@ -73,7 +91,6 @@ export default function SignUpPage() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

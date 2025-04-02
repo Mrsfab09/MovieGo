@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { SignUp } from "@clerk/nextjs";
 import { Check } from "lucide-react";
+import RadioBox from "@/app/components/RadioBox/RadioBox";
 
 export default function SignUpPage() {
   const [step, setStep] = useState(1);
@@ -37,7 +38,11 @@ export default function SignUpPage() {
                     : "border-neutral-700 bg-neutral-800 text-gray-400"
                 }`}
               >
-                {step > index + 1 ? <Check size={"18"} /> : index + 1}
+                {step > index + 1 ? (
+                  <Check size={"18"} color="#A9A9A9" />
+                ) : (
+                  index + 1
+                )}
               </div>
 
               {/* Opis kroku */}
@@ -84,23 +89,25 @@ export default function SignUpPage() {
 
           {step === 2 && (
             <div className="w-full max-w-md flex flex-col">
-              <h2 className="text-3xl font-semibold text-neutral-300">
-                Choose Your Plan
+              <h2 className="text-3xl font-semibold text-neutral-300 mb-10">
+                Choose your plan
               </h2>
-              <div className="flex flex-col gap-7 mt-4">
-                <div className="w-96 bg-neutral-900 border border-neutral-800 p-5 h-20 flex items-center rounded-md gap-4">
-                  <input type="radio" name="" id="" className="" />
-                  <label htmlFor="">Basic</label>
-                </div>
-                <div className="w-96 bg-neutral-900 border border-neutral-800 p-5 h-20 flex items-center rounded-md gap-4">
-                  <input type="radio" name="" id="" />
-                  <label htmlFor="">Premium</label>
-                </div>
-                <div className="w-96 bg-neutral-900 border border-neutral-800 p-5 h-20 flex items-center rounded-md gap-4">
-                  <input type="radio" name="" id="" />
-                  <label htmlFor="">Standard</label>
-                </div>
+              <RadioBox />
+              <div className="col-span-3 mt-10">
+                <p className="text-neutral-400">
+                  Want more information about our plans?{" "}
+                  <a
+                    href="/pricing"
+                    className="relative inline-block text-red-700 transition-colors duration-300 hover:text-red-700 
+                            after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-red-800 
+                            after:transition-all after:duration-300 after:ease-in-out 
+                            hover:after:w-full"
+                  >
+                    Check here.
+                  </a>
+                </p>
               </div>
+
               <div className="flex justify-between w-full gap-4 mt-10">
                 <button
                   onClick={prevStep}

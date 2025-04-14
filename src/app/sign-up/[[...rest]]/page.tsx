@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SignUp } from "@clerk/nextjs";
 import { Check } from "lucide-react";
 import RadioBox from "@/app/components/RadioBox/RadioBox";
+import { Logo } from "@/app/components/Logo/Logo";
 
 export default function SignUpPage() {
   const [step, setStep] = useState(1);
@@ -24,7 +25,8 @@ export default function SignUpPage() {
     <div className="flex justify-center items-center h-screen bg-neutral-950">
       <div className="grid grid-cols-1 md:grid-cols-3 w-full max-w-[1300px] min-h-[800px] bg-neutral-950 shadow-lg rounded-lg border border-neutral-800 overflow-hidden p-6">
         {/* Progress bar */}
-        <div className="flex flex-col items-start w-96 h-full mt-44 ml-10 pl-6 gap-20">
+        <div className="flex flex-col items-start w-96 h-full mt-20 ml-10 pl-6 gap-20">
+          <Logo width={40} height={40} font={"3xl"} />
           {steps.map((stepInfo, index) => (
             <div key={index} className="flex items-start gap-4 relative mb-6">
               {index !== steps.length - 1 && (

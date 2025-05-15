@@ -13,13 +13,6 @@ interface Movie {
   release_date: string;
 }
 
-/*
-******************************************************
- nazwa funkcji: Movies
- opis: Komponent wyswietlajacy strone z filmami, komponent łaczy się z API TMDB( czyli baza danych z filmami ) i wyswietla filmy  
-*****************************************************
-*/
-
 export default function Movies() {
   const [movies, setMovies] = useState<Movie[]>([]);
   // const [movies, setMovies] = useState<TMDBMovie[]>([]);

@@ -1,8 +1,9 @@
-import { useState } from "react";
+interface RadioProps {
+  selected: string;
+  setSelected: (value: string) => void;
+}
 
-const RadioBox = () => {
-  const [selected, setSelected] = useState("1");
-
+const RadioBox = ({ selected, setSelected }: RadioProps) => {
   const options = [
     {
       value: "1",

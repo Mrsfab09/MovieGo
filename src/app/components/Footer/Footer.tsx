@@ -1,12 +1,5 @@
-import Link from "next/link"; // Poprawiony import
+import Link from "next/link";
 import Image from "next/image";
-
-/*
-******************************************************
- nazwa funkcji: Footer
- opis: Komponent wyswietlajacy stopke strony
-*****************************************************
-*/
 
 export function Footer() {
   return (

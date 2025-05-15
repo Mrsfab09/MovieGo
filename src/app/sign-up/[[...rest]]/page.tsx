@@ -1,16 +1,27 @@
 "use client";
 
-import { useState } from "react";
-import { SignUp } from "@clerk/nextjs";
+import { useState, useEffect } from "react";
+import { SignUp, useUser } from "@clerk/nextjs";
 import { Check } from "lucide-react";
 import RadioBox from "@/app/components/RadioBox/RadioBox";
 import { Logo } from "@/app/components/Logo/Logo";
+import { NextButton } from "@/app/components/Buttons/NextButton";
 
 export default function SignUpPage() {
-  const [step, setStep] = useState(1);
+  const { user, isLoaded } = useUser();
 
-  const nextStep = () => setStep((prev) => prev + 1);
-  const prevStep = () => setStep((prev) => prev - 1);
+  const [step, setStep] = useState(1);
+  const [selectedPlan, setSelectedPlan] = useState("1");
+
+  const nextStep = () => setStep((prev) => (prev < 3 ? prev + 1 : prev));
+  const prevStep = () => setStep((prev) => (prev > 1 ? prev - 1 : prev));
+
+  // Automatyczne przejście po rejestracji
+  useEffect(() => {
+    if (isLoaded && user && step === 1) {
+      setStep(2);
+    }
+  }, [isLoaded, user, step]);
 
   const steps = [
     { label: "Create account", description: "Vitae sed mi luctus laoreet." },
@@ -20,6 +31,14 @@ export default function SignUpPage() {
     },
     { label: "Preview", description: "Penatibus eu quis ante." },
   ];
+
+  const planMap: { [key: string]: { title: string; price: string } } = {
+    "1": { title: "Basic", price: "$5" },
+    "2": { title: "Premium", price: "$15" },
+    "3": { title: "Standard", price: "$10" },
+  };
+
+  const planInfo = planMap[selectedPlan];
 
   return (
     <div className="flex justify-center items-center h-screen bg-neutral-950">
@@ -75,17 +94,10 @@ export default function SignUpPage() {
                     headerTitle: "text-2xl font-bold text-gray-100",
                     socialButtonsBlockButton: "bg-gray-700 hover:bg-gray-600",
                     formFieldInput: "bg-neutral-800 border-none text-white p-3",
-                    formButtonPrimary: "hidden",
+                    // formButtonPrimary: "hidden",
                   },
                 }}
               />
-
-              <button
-                onClick={nextStep}
-                className="w-96 mt-4 p-3 bg-red-700 text-neutral-300 rounded-lg font-semibold"
-              >
-                Next
-              </button>
             </div>
           )}
 
@@ -94,7 +106,7 @@ export default function SignUpPage() {
               <h2 className="text-3xl font-semibold text-neutral-300 mb-10">
                 Choose your plan
               </h2>
-              <RadioBox />
+              <RadioBox selected={selectedPlan} setSelected={setSelectedPlan} />
               <div className="col-span-3 mt-10">
                 <p className="text-neutral-400">
                   Want more information about our plans?{" "}
@@ -117,19 +129,22 @@ export default function SignUpPage() {
                 >
                   Back
                 </button>
-                <button
-                  onClick={nextStep}
-                  className="w-full mt-4 p-3 bg-red-700 text-neutral-300 rounded-lg"
-                >
-                  Next
-                </button>
+                <NextButton onClick={nextStep} />
               </div>
             </div>
           )}
 
           {step === 3 && (
             <div className="w-full max-w-md">
-              <h2 className="text-2xl font-semibold text-gray-800">Summary</h2>
+              <h2 className="text-3xl font-semibold text-neutral-300 mb-10">
+                Summary
+              </h2>
+              <div className="col-span-3">
+                Username: {user?.username} <br />
+                Plan: {planInfo.title}
+                <br />
+                Price: {planInfo.price}
+              </div>
               <button
                 onClick={prevStep}
                 className="mt-4 p-2 bg-neutral-800 text-neutral-300 rounded-lg"

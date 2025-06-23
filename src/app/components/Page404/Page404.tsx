@@ -1,12 +1,5 @@
 import Link from "next/link";
 
-/*
-******************************************************
- nazwa funkcji: Page404
- opis: Komponent wyświetlajacy strone z błędem 404 w przypadku jakiegoś błędu na stronie
-*****************************************************
-*/
-
 export function Page404() {
   return (
     <main className="grid min-h-screen place-items-center bg-transparent px-6 py-24 sm:py-32 lg:px-8">

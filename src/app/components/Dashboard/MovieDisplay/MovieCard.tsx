@@ -19,13 +19,6 @@ interface TMDBMovie {
   vote_average: number;
 }
 
-/*
-******************************************************
- nazwa funkcji: MovieGrid
- opis: Komponent wyswietlajacy siatke układu filmów 
-*****************************************************
-*/
-
 const MovieGrid: React.FC = () => {
   const [movies, setMovies] = useState<TMDBMovie[]>([]);
   const [loading, setLoading] = useState(true);
@@ -95,13 +88,6 @@ const MovieGrid: React.FC = () => {
     </div>
   );
 };
-
-/*
-******************************************************
- nazwa funkcji: MovieCard
- opis: Komponent wyswietlajacy pojedynczy film w siatce
-*****************************************************
-*/
 
 const MovieCard: React.FC<MovieCardProps> = ({ title, posterUrl, rating }) => (
   <div className="relative group">

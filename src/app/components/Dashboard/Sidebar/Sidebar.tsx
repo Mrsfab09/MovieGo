@@ -14,22 +14,16 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
-import SidebarItem from "./SidebarItem";
+import { SidebarItem } from "./SidebarItem";
 import { useRouter, usePathname } from "next/navigation";
+import { MovieSearch } from "../../Search/MovieSearch";
 
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-/*
-******************************************************
- nazwa funkcji: Sidebar
- opis: Komponent wyswietlajacy boczne menu nawigacyjne w dashboard, czyli głownej stronie po zalogowaniu się do aplikacji 
-*****************************************************
-*/
-
-export function Sidebar({ isOpen, onClose }: SidebarProps) {
+export function Sidebar() {
   const router = useRouter();
   const pathname = usePathname();
   const { isLoaded, user } = useUser();
@@ -52,7 +46,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             icon={<Search size={24} />}
             label="Search"
             href="/search"
-            active={pathname === "/search"}
+            component={<MovieSearch />}
           />
           <SidebarItem
             icon={<Film size={24} />}

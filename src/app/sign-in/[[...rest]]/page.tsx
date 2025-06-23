@@ -3,13 +3,6 @@ import { SignIn } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
-/*
-******************************************************
- nazwa funkcji: SignInPage
- opis: Komponent wyswietlajacy strone logowania, oblugiwany przez system Clerk
-*****************************************************
-*/
-
 export default function SignInPage() {
   return (
     <>

@@ -5,10 +5,10 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { Bars3Icon } from "@heroicons/react/24/outline"; // Import ikony hamburgera
+import { Logo } from "../Logo/Logo";
 
 const initialNavigation = [
   { name: "Features", href: "#features", current: false },
@@ -20,13 +20,6 @@ const initialNavigation = [
 function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(" ");
 }
-
-/*
-******************************************************
- nazwa funkcji: Navbar
- opis: Komponent wyswietlajacy pasek nawigacyjny na stronie głównej
-*****************************************************
-*/
 
 export function Navbar() {
   const [navigation, setNavigation] = useState(initialNavigation);
@@ -50,17 +43,7 @@ export function Navbar() {
         <div className="relative flex h-16 items-center">
           <div className="absolute inset-y-0 left-0 flex items-center">
             <div className="flex items-center space-x-2">
-              <Link href="/" className="flex items-center space-x-2">
-                <Image
-                  width={30}
-                  height={30}
-                  src="/film.svg"
-                  alt="MovieGo Logo"
-                />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                  MovieGo
-                </span>
-              </Link>
+              <Logo width={40} height={40} />
             </div>
           </div>
 

@@ -1,13 +1,6 @@
 "use client";
 import { Loader2 } from "lucide-react";
 
-/*
-******************************************************
- nazwa funkcji: AuthLoading
- opis: Komponent wyswietlajacy animacje ladowania po zalogowaniu, narazie nie używany 
-*****************************************************
-*/
-
 export default function AuthLoading() {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-neutral-900 text-white">

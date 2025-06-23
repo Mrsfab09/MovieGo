@@ -1,12 +1,5 @@
 import Image from "next/image";
 
-/*
-******************************************************
- nazwa funkcji: NoImage
- opis: Komponent wyswietlajacy obrazek w przypadku braku obrazka filmu 
-*****************************************************
-*/
-
 export function NoImage() {
   return (
     <Image

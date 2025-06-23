@@ -1,173 +1,160 @@
 "use client";
 
-import { useState } from "react";
-import { SignUp } from "@clerk/nextjs";
-import Image from "next/image";
-import Link from "next/link";
-import { Footer } from "@/app/components/Footer/Footer";
-
-/*
-******************************************************
- nazwa funkcji: SignUpPage
- opis: Komponent wyswietlajacy strone rejestracji, oblugiwany przez system Clerk
-*****************************************************
-*/
+import { useState, useEffect } from "react";
+import { SignUp, useUser } from "@clerk/nextjs";
+import { Check } from "lucide-react";
+import RadioBox from "@/app/components/RadioBox/RadioBox";
+import { Logo } from "@/app/components/Logo/Logo";
+import { NextButton } from "@/app/components/Buttons/NextButton";
 
 export default function SignUpPage() {
-  const [isLoading, setIsLoading] = useState(false);
+  const { user, isLoaded } = useUser();
 
-  const handleSignUpStart = () => {
-    setIsLoading(true);
+  const [step, setStep] = useState(1);
+  const [selectedPlan, setSelectedPlan] = useState("1");
+
+  const nextStep = () => setStep((prev) => (prev < 3 ? prev + 1 : prev));
+  const prevStep = () => setStep((prev) => (prev > 1 ? prev - 1 : prev));
+
+  // Automatyczne przejście po rejestracji
+  useEffect(() => {
+    if (isLoaded && user && step === 1) {
+      setStep(2);
+    }
+  }, [isLoaded, user, step]);
+
+  const steps = [
+    { label: "Create account", description: "Vitae sed mi luctus laoreet." },
+    {
+      label: "Subscription plan",
+      description: "Cursus semper viverra facilisis et some more.",
+    },
+    { label: "Preview", description: "Penatibus eu quis ante." },
+  ];
+
+  const planMap: { [key: string]: { title: string; price: string } } = {
+    "1": { title: "Basic", price: "$5" },
+    "2": { title: "Premium", price: "$15" },
+    "3": { title: "Standard", price: "$10" },
   };
 
-  const handleSignUpSuccess = () => {
-    setIsLoading(false);
-  };
+  const planInfo = planMap[selectedPlan];
 
   return (
-    <>
-      <div className="flex flex-col justify-center items-center h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1200px] min-h-[750px] md:h-[700px] bg-neutral-900 rounded-lg shadow-xl border border-gray-700 overflow-hidden p-6">
-          {/* Lewa część – Obrazek */}
-          <div className="relative hidden md:block w-full h-full opacity-80">
-            <Image
-              src="/assets/popcorn-cinema.jpg"
-              alt="Popcorn Cinema"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              quality={75}
-              loading="lazy"
-            />
-          </div>
+    <div className="flex justify-center items-center h-screen bg-neutral-950">
+      <div className="grid grid-cols-1 md:grid-cols-3 w-full max-w-[1300px] min-h-[800px] bg-neutral-950 shadow-lg rounded-lg border border-neutral-800 overflow-hidden p-6">
+        {/* Progress bar */}
+        <div className="flex flex-col items-start w-96 h-full mt-20 ml-10 pl-6 gap-20">
+          <Logo width={40} height={40} font={"3xl"} />
+          {steps.map((stepInfo, index) => (
+            <div key={index} className="flex items-start gap-4 relative mb-6">
+              {index !== steps.length - 1 && (
+                <div className="absolute left-5 top-10 w-[2px] h-40 bg-neutral-800"></div>
+              )}
 
-          {/* Prawa część – Formularz */}
-          <div className="flex flex-col justify-center items-center w-full">
-            <Link
-              href="/"
-              className="flex items-center mb-4 sm:mb-4 space-x-3 rtl:space-x-reverse"
-            >
-              <Image
-                width={40}
-                height={40}
-                src="/film.svg"
-                alt="MovieGo Logo"
+              <div
+                className={`w-10 h-10 rounded-full flex items-center justify-center border-4 ${
+                  step === index + 1
+                    ? "border-red-800 bg-red-700 text-neutral-300 font-bold"
+                    : "border-neutral-700 bg-neutral-800 text-gray-400"
+                }`}
+              >
+                {step > index + 1 ? (
+                  <Check size={"18"} color="#A9A9A9" />
+                ) : (
+                  index + 1
+                )}
+              </div>
+
+              {/* Opis kroku */}
+              <div>
+                <h3
+                  className={`text-lg font-semibold ${
+                    step === index + 1 ? "text-red-800" : "text-gray-500"
+                  }`}
+                >
+                  {stepInfo.label}
+                </h3>
+                <p className="text-gray-400 text-sm">{stepInfo.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Form */}
+        <div className="flex flex-col justify-center items-center w-full col-span-2 ml-32">
+          {step === 1 && (
+            <div className="flex flex-col items-center">
+              <SignUp
+                routing="hash"
+                appearance={{
+                  elements: {
+                    rootBox: "p-3",
+                    card: "bg-neutral-900 text-white p-6 rounded-lg w-full max-w-md",
+                    headerTitle: "text-2xl font-bold text-gray-100",
+                    socialButtonsBlockButton: "bg-gray-700 hover:bg-gray-600",
+                    formFieldInput: "bg-neutral-800 border-none text-white p-3",
+                    // formButtonPrimary: "hidden",
+                  },
+                }}
               />
-              <span className="self-center text-4xl font-semibold whitespace-nowrap dark:text-white">
-                MovieGo
-              </span>
-            </Link>
-            <SignUp
-              routing="hash"
-              appearance={{
-                elements: {
-                  rootBox: "p-3",
-                  card: "bg-neutral-900 text-white p-6 rounded-lg w-full max-w-md",
-                  headerTitle: "text-2xl font-bold text-gray-100",
-                  socialButtonsBlockButton: "bg-gray-700 hover:bg-gray-600",
-                  formFieldInput: "bg-neutral-800 border-none text-white p-3",
-                  formButtonPrimary: "p-3",
-                },
-              }}
-            />
-          </div>
+            </div>
+          )}
+
+          {step === 2 && (
+            <div className="w-full max-w-md flex flex-col">
+              <h2 className="text-3xl font-semibold text-neutral-300 mb-10">
+                Choose your plan
+              </h2>
+              <RadioBox selected={selectedPlan} setSelected={setSelectedPlan} />
+              <div className="col-span-3 mt-10">
+                <p className="text-neutral-400">
+                  Want more information about our plans?{" "}
+                  <a
+                    href="/pricing"
+                    className="relative inline-block text-red-700 transition-colors duration-300 hover:text-red-700 
+                            after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-red-800 
+                            after:transition-all after:duration-300 after:ease-in-out 
+                            hover:after:w-full"
+                  >
+                    Check here.
+                  </a>
+                </p>
+              </div>
+
+              <div className="flex justify-between w-full gap-4 mt-10">
+                <button
+                  onClick={prevStep}
+                  className="w-full mt-4 p-3 bg-neutral-800 text-neutral-300 rounded-lg"
+                >
+                  Back
+                </button>
+                <NextButton onClick={nextStep} />
+              </div>
+            </div>
+          )}
+
+          {step === 3 && (
+            <div className="w-full max-w-md">
+              <h2 className="text-3xl font-semibold text-neutral-300 mb-10">
+                Summary
+              </h2>
+              <div className="col-span-3">
+                Username: {user?.username} <br />
+                Plan: {planInfo.title}
+                <br />
+                Price: {planInfo.price}
+              </div>
+              <button
+                onClick={prevStep}
+                className="mt-4 p-2 bg-neutral-800 text-neutral-300 rounded-lg"
+              >
+                Back
+              </button>
+            </div>
+          )}
         </div>
       </div>
-      <Footer />
-    </>
+    </div>
   );
 }
-
-// "use client";
-
-// import { SignUp } from "@clerk/nextjs";
-// import { useRouter } from "next/navigation";
-
-// export default function SignUpPage() {
-//   const router = useRouter();
-
-//   const handleSignUp = () => {
-//     router.push("/dashboard");
-//   };
-
-//   return (
-//     <div>
-//       <SignUp routing="hash" />
-//     </div>
-//   );
-// }
-
-// "use client";
-
-// import { useUser } from "@clerk/nextjs"; // Importujemy hook
-// import { SignUp } from "@clerk/nextjs";
-// import Image from "next/image";
-// import Link from "next/link";
-// import { Footer } from "../components/Footer/Footer";
-// import { useRouter } from "next/navigation"; // Używamy useRouter z next/navigation
-// import { useEffect } from "react";
-
-// export default function SignUpPage() {
-//   const { isSignedIn } = useUser(); // Sprawdzamy, czy użytkownik jest zalogowany
-//   const router = useRouter(); // Inicjalizujemy router
-
-//   // Efekt, który działa po zakończeniu renderowania
-//   useEffect(() => {
-//     if (isSignedIn) {
-//       router.push("/dashboard"); // Przekierowanie na dashboard po zalogowaniu
-//     }
-//   }, [isSignedIn, router]); // Uruchamiamy efekt tylko, gdy isSignedIn lub router się zmieni
-
-//   // Jeśli użytkownik jest już zalogowany, nie renderujemy formularza
-//   if (isSignedIn) {
-//     return null; // Zwracamy null, aby nie renderować formularza rejestracji, gdy użytkownik jest zalogowany
-//   }
-
-//   return (
-//     <>
-//       <div className="flex flex-col justify-center items-center h-screen">
-//         <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1200px] min-h-[750px] md:h-[700px] bg-neutral-900 rounded-lg shadow-xl border border-gray-700 overflow-hidden p-6">
-//           {/* Lewa część – Obrazek */}
-//           <div className="relative hidden md:block w-full h-full opacity-80">
-//             <Image
-//               src="/assets/popcorn-cinema.jpg"
-//               alt="Popcorn Cinema"
-//               layout="fill"
-//               objectFit="cover"
-//               objectPosition="center"
-//               quality={75}
-//               loading="lazy"
-//             />
-//           </div>
-
-//           {/* Prawa część – Formularz */}
-//           <div className="flex flex-col justify-center items-center w-full">
-//             <Link href={"/"}>
-//               <Image
-//                 src={"/assets/logoGo.png"}
-//                 alt="Movie logo"
-//                 width={300}
-//                 height={300}
-//               />
-//             </Link>
-//             <SignUp
-//               routing="hash"
-//               appearance={{
-//                 elements: {
-//                   rootBox: "p-3",
-//                   card: "bg-neutral-900 text-white p-6 rounded-lg w-full max-w-md",
-//                   headerTitle: "text-2xl font-bold text-gray-100",
-//                   socialButtonsBlockButton: "bg-gray-700 hover:bg-gray-600",
-//                   formFieldInput: "bg-gray-700 border-none text-white",
-//                   formButtonPrimary:
-//                     "bg-red-900 hover:bg-red-600 text-white p-2 ",
-//                 },
-//               }}
-//             />
-//           </div>
-//         </div>
-//       </div>
-//       <Footer />
-//     </>
-//   );
-// }

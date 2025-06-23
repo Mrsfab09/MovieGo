@@ -18,20 +18,13 @@ import {
 } from "../../data/mockData";
 import Image from "next/image";
 
-/*
-******************************************************
- nazwa funkcji: Dashboard
- opis: Komponent odpowedzialny za głowne menu aplikacji po zalgowaniu 
-*****************************************************
-*/
-
 export function Dashboard() {
   const { isLoaded, user } = useUser();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="flex">
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar />
 
       <div className="flex-1 md:ml-16">
         <div className="md:hidden z-30 flex items-center justify-center px-4 py-2 bg-neutral-950">
@@ -55,19 +48,17 @@ export function Dashboard() {
                 title="Continue Watching"
                 icon={<Play size={20} className="text-red-500" />}
               >
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                  {continueWatching.map((movie) => (
-                    <div key={movie.id} className="relative">
-                      <MovieCard />
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800">
-                        <div
-                          className="h-full bg-red-600"
-                          style={{ width: `${movie.progress}%` }}
-                        ></div>
-                      </div>
+                Under construction
+                {/* {continueWatching.map((movie) => (
+                  <div key={movie.id} className="relative">
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800">
+                      <div
+                        className="h-full bg-red-600"
+                        style={{ width: `${movie.progress}%` }}
+                      ></div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))} */}
               </MovieRow>
             )}
 
@@ -89,16 +80,14 @@ export function Dashboard() {
               icon={<Calendar size={20} className="text-purple-500" />}
               showAll="/movies?category=upcoming"
             >
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {upcomingMovies.map((movie) => (
-                  <div key={movie.id} className="relative">
-                    <MovieCard />
-                    <div className="absolute top-2 right-2 bg-purple-600 text-white text-xs py-1 px-2 rounded-md">
-                      {movie.releaseDate}
-                    </div>
+              Under construction
+              {/* {upcomingMovies.map((movie) => (
+                <div key={movie.id} className="relative">
+                  <div className="absolute top-2 right-2 bg-purple-600 text-white text-xs py-1 px-2 rounded-md">
+                    {movie.releaseDate}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))} */}
             </MovieRow>
 
             {/* My List (only if user is logged in) */}

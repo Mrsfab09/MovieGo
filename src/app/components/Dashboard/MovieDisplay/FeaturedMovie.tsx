@@ -9,13 +9,6 @@ interface FeaturedMovieProps {
   movie: FeaturedMovieType;
 }
 
-/*
-******************************************************
- nazwa funkcji: FeaturedMovie
- opis: Komponent wyswietlajacy polecany film na stronie głownej aplikacji po logowaniu 
-*****************************************************
-*/
-
 export function FeaturedMovie({ movie }: FeaturedMovieProps) {
   return (
     <section className="relative h-96 mb-8">

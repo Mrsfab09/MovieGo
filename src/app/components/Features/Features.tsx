@@ -1,12 +1,5 @@
 import { FeatureBox } from "./FeatureBox";
 
-/*
-******************************************************
- nazwa funkcji: Features
- opis: Komponent wyswietlajacy sekcje Features
-*****************************************************
-*/
-
 export function Features() {
   return (
     <>

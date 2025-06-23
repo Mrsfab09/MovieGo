@@ -13,13 +13,6 @@ interface Movie {
   release_date: string;
 }
 
-/*
-******************************************************
- nazwa funkcji: Movies
- opis: Komponent wyswietlajacy strone z filmami, komponent łaczy się z API TMDB( czyli baza danych z filmami ) i wyswietla filmy  
-*****************************************************
-*/
-
 export default function Movies() {
   const [movies, setMovies] = useState<Movie[]>([]);
   // const [movies, setMovies] = useState<TMDBMovie[]>([]);
@@ -93,7 +86,7 @@ export default function Movies() {
 
   return (
     <>
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar />
       <main className="px-4 py-6 md:px-8 flex-1 md:ml-16 bg-neutral-950">
         <h1 className="text-2xl md:text-3xl font-bold mb-6">Popular Movies</h1>
 

@@ -17,10 +17,11 @@ export function Hero() {
       </div>
       <div className="flex justify-center p-5">
         <Image
-          width={1100}
-          height={500}
-          src={"/assets/movies_resized.png"}
-          className="rounded-lg border border-slate-400 mt-8 w-full sm:w-auto opacity-95"
+          width={900}
+          height={800}
+          src={"/assets/mockups-series.jpg"}
+          className="rounded-lg mt-8 w-full sm:w-auto opacity-85"
+          priority={true}
           alt={"cinema"}
         />
       </div>

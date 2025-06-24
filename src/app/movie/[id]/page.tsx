@@ -1,19 +1,12 @@
-import { notFound } from "next/navigation";
+import { Page404 } from "@/app/components/Page404/Page404";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
-
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+export default async function Page() {
+  return (
+    <div>
+      <Page404 />
+      {/* To do in the future */}
+    </div>
   );
-
-  if (!res.ok) {
-    return notFound();
-  }
-
-  const movie = await res.json();
-
-  return <div>{movie.title}</div>;
 }
 
 // import { Sidebar } from "@/app/components/Dashboard/Sidebar/Sidebar";

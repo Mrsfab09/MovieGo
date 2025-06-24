@@ -2,11 +2,13 @@ import { Sidebar } from "@/app/components/Dashboard/Sidebar/Sidebar";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export default async function MovieDetails({
-  params,
-}: {
-  params: { id: string };
-}) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function MovieDetails({ params }: PageProps) {
   const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
   const res = await fetch(

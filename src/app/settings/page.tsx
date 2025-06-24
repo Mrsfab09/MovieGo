@@ -9,7 +9,7 @@ export default function Settings() {
 
   return (
     <>
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar />
       <div className="flex-1 md:ml-16">
         <div className="flex items-center justify-center mt-5 sm:mt-32 lg:mt-20">
           <UserProfile />

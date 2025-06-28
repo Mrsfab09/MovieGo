@@ -1,0 +1,298 @@
+(E) WCAG:
+-strona jest responsywna
+-kod strony poprawnie waliduje się na validatorze W3C
+-duże i czytelne czcionki
+-duży kontrast pomiędzy treścią a tłem
+-menu przełączalne klawiszem TAB
+-uzupełnione atrybuty alt przy zdjęciach aby był możliwy odczyt przez czytniki immersyjne w przeglądarkach
+-przełącznik wielkości czcionek
+
+(E) Responsywność:
+-zastosowanie biblioteki bootstrap, która zapewniła nam responsywną siatkę i responsywne komponenty
+-zastosowanie jednostek responsywnych np.: em, %
+-przełącznik @media (max-width: 768px), który umożliwił nam dopisanie odrębnych styli specjalnie dla urządzeń mobilnych
+-zastosowanie w sekcji HEAD kodu meta name="viewport", który dopasowuje szerokość naszego kontentu do szerokości ekranu urządzenia
+
+
+Funkcje nowo zainstalowanego Wordpressa:
+-system rejestracji i logowania użytkowników
+-system uprawnień dla użytkowników
+-mechanizm blogowy: wpisy, kategorie, tagi
+-mechanizm do tworzenia podstron serwisu
+-mechanizm do tworzenia i zarządzania menu witryny
+-zarządzanie plikami multimedialnymi
+-system komentowania wpisów
+-system wymiennych motywów
+
+(E)Ustaw język Twojej witryny na polski
+
+(E)Wtyczki Wordpress:
+-contact form 7 (tylko instalacja i włączenie)
+
+(E)-updraft plus (instalacja, włączenie, wykonać kopię zapasową całej strony, pobrać na dysk)
+
+(E) odtwórz z wykonanej w poprzednim zadaniu kopii całą swoją stronę
+
+(E) wtyczka Wordfence (instalacja, włączenie, aktywacja wtyczki, przeskanowanie wordpressa)
+
+(E) zainstaluj i włącz motyw Photograph
+
+(E) Utwórz nowego użytkownika o danych:
+user: piotr_kowalewski
+imię: Piotr
+nazwisko: Kowalewski
+adres www: -
+email: p.kowalewski@gmail.com
+rola: Subskrybent
+hasło: pkowal2025
+
+(E)
+a) utwórz nową kategorię bloga o nazwie: HTML
+zmień nazwę kategorii "bez kategorii" na Aktualości
+
+b) utwórz wpis na bloga o poniższej treści:
+Tytuł: Walidacja kodu HTML
+Treść: Do sprawdzenia poprawności kodu HTML służą walidatory.
+Zdjęcie: top.jpg
+Kategoria: HTML
+
+c) utwórz menu witryny i dodaj do niego kategorię bloga HTML
+
+(E)
+a) podmień zdjęcie we wcześniej utworzonym wpisie na kucharz.png
+b) wyedytuj css wordpressa tak aby: treści wszystkich wpisów miały kolor czerwony i stopka wordpressa miała kolor #000fff
+
+(E)-opisowe
+Wymień wymagania systemu Wordpress:
+-PHP min ver 7.4
+-MySQL, MariaDB
+-obsługa https
+
+(E)-opisowe
+Opisz technologie wykorzystywane przez system wordpress (miedzy 100 a 150 słów)
+PHP – darmowy skryptowy język programowania służący do pisania: sklepów internetowych, aplikacji webowych, systemów CMS itp. Jest to technologia back-end czyli działa po stronie serwera. Pliki mają rozszerzenie .php. Jest to jeden ze składników serwera Apache.
+
+MySQL – darmowy silnik relacyjnych baz danych utrzymywany przez firmę Oracle. Narzędziem wspomagającym pracę z bazami MySQL jest PHPMyAdmin. Bazy MySQL projektujemy do stron pisanych w języku PHP.
+
+HTML – jest to język znaczników do programowania szkieletów stron www. Jest to technologia front-end czyli działa po stronie przeglądarki. Do zinterpretowania kodu HTML potrzebujemy dowolnej przeglądarki internetowej. W HTMLu deklarujemy takie elementy jak: nagłówki, teksty, obrazy, listy itp.
+
+CSS – są to kaskadowe arkusze stylów służące do stylizacji kodu HTML. Stylizacji podlegają miedzy innymi: czcionki, obrazy, odstępy, marginesy, kolory itp. Został stworzone w celu odseparowania struktury strony od warstwy wyglądu. Jest to technologia front-end
+
+(E) Napisz instrukcję obsługi wordpressa w zakresie:
+a) jak zalogować się do systemu?
+W przeglądarce wpisać adres naszej strony/wp-admin. Wpisujemy login i hasło oraz potwierdzamy przyciskiem Zaloguj
+
+b) jak dodać wpis tekstowy do bloga?
+W panelu Wordpress klikamy Wpisy > dodaj wpis.
+Podajemy tutuł wpisu, treść, przypisujemy wpis do odpowiedniej kategorii i potwierdzamy przyciskiem Opublikuj
+
+c) jak dodać wpis tekstowy ze zdjęciem do bloga?
+W panelu Wordpress klikamy Wpisy > dodaj wpis.
+Podajemy tutuł wpisu, treść, przypisujemy wpis do odpowiedniej kategorii. aby wstawić zdjęcie należy kliknąć czarny krzyżyk "+", wybrać obiekt typu Obrazek, wgrać zdjęcie do wordpressa.
+Potwierdzamy przyciskiem Opublikuj
+
+
+
+(E) Zweryfikuj czy wersja PHP na Twoim serwerze jest wystarczająca dla systemu Wordpress?
+
+(E) Utwórz nową bazę danych i nowego użytkownika, który będzie uprawnienia do tej bazy:
+user: bazas
+hasło: bazas
+nazwa bazy: bazas
+Do nowo utworzonej bazy zaimportuj plik bazy danych utworzony przez wtyczkę Updraft Plus w Wordpressie.
+
+Wykonaj export Twojej bazy do formatu JSON.
+
+
+
+(E) znajdź i pobierz 2 zdjęcia z legalnych źródeł tematycznie pasujących do strony cukierni.
+dodatkowo zapisz linki do tych zdjęć.
+www.pixbay.com
+
+
+
+
+(E) Oferta na wykonanie strony internetowej:
+-technologie: HTML, CSS
+-strona typu ONE PAGE
+-mapa serwisu: Strona główna, Oferta, O nas, Kontakt
+-frazy kluczowe do pozycjonowania strony: cukiernia Lublin, cukiernia
+-strona zgodna z W3C
+-strona będzie responsywna
+-strona będzie zgodna ze standardami WCAG
+-proponowana domena: sweetdreams.net.pl 
+-termin realizacji: 4-8 dni roboczych
+-cena: 900-1500 zł
+-możliwość pobrania menu cukierni w pdf
+-możliwość kontaktu przy pomocy formularza kontaktowego
+
+(E) edycja kodu html, css
+Podmień zdjęcie w sliderze strony na tlo-cafeteria.jpg.
+Podmień kolor nagłówka strony na #00ff00
+
+(E) edycja kodu html, css
+Zoptymalizuj kod witryny pod poniższe 3 frazy:
+-fraza1
+-fraza2
+-fraza3
+
+
+SEO:
+-zawartość - treść
+-optymalizacja kodu
+-linki zewnętrzne
+
+
+(E) zmień kolor nagłówka w makiecie strony na #00ff0f
+
+(E) zrób walidacje kodu HTML i CSS
+
+(E) Przygotuj arkusz do audytu strony wykorzystując poniższa tabelę. Utwórz pytania z poniższych zagadnień:
+-wyświetlanie obrazów
+-działanie formularza
+-responsywność
+-poprawność kodu
+-zgodność z WCAG
+
+(E) wykorzystując formularz stworozny w poprzednim zadaniu przeprowadź audyt swojej witryny
+
+TEORIA:
+-umiejętność doboru domen
+-bezpieczeństwo stron www
+
+http - strona bez certyfikatu SSL
+https - strona z ceryfikatem SSL
+FTP - ftp bez certyfikatu SSL
+SFTP - ftp z ceryfikatem SSL
+
+serwer FTP - przestrzeń dyskowa na hostingu
+klient FTP - program który łączy się z serwerem ftp i potrafi przesyłać/odbierać pliki i katalogi
+
+unikamy loginów: admin, administrator
+
+-znajomość technologii wordpress i ról uprawnień
+
+Administrator - może wszystko
+Redaktor - może tworzyć/edytować/usuwać treści wszystkich uzytkowników
+Autor - może tworzyć/edytować/usuwać tylko swoje treści
+Współtwórca - może tworzyć nowe treści i zapisywać je jako szkice
+Subskrybent - może przeglądać treści dostępne dla zalogowanych użytkowników i komentować je
+
+
+-umiejętność doboru hostingu
+
+-umiejętność doboru technologii pod klienta
+
+Front-end: 
+HTML, CSS, JavaScript
+biblioteki JS: Bootstrap, Angular, React, Vue, Node.js, jquery
+
+Back-end:
+Języki programowania: PHP, Python, Java, .NET
+Bazy danych: MySQL, MariaDB, PostgreSQL
+
+
+wp-config.php - plik wordpressa zawierający dane konfiguracyjne m.in: dane do bazy danych
+
+CRON - jest to mechanizm na hostingu, który pozwala na automatyczne uruchamianie dowolnego pliku np.: php, py według ustawionego harmonogramu w kalendarzu
+
+
+
+-publikacja witryny
+serwer FTP - jest to przestrzeń dyskowa na hostingu do której zdefiowane są dostępy dla użytkowników
+klient FTP - aplikacja, która potrafi łączyć się z serwerem ftp w celu przesyłania plików
+
+Przykładowe programy pracujące jako klient ftp:
+-WinSCP
+-Filezilla
+-Total Commander
+-SmartFTP
+
+port SSL - 22
+port bez SSL - 21
+
+
+-bazy danych
+Przy zakładaniu nowej bazy danych potrzebujemy 2 rzeczy:
+1. nazwa bazy danych
+2. metoda porównywania napisów (kodowanie znaków)
+
+
+
+
+-prawa autorskie
+Rodzaje licencji CC (Creative Commons)
+-CC0 - domena publiczna-brak praw autorskich, wolno nam wszystko bez ograniczeń
+-CC-BY - Uznanie autorstwa
+-CC-NC - Użycie niekomercyjne
+-CC-SA - Na tych samych warunkach
+-CC-ND - bez utworów zależnych
+
+Oprogramowanie do tworzenia stron www rozpowszechniane jest na licencji GNU (GPL)
+
+
+
+-pliki graficzne
+podział grafiki na: wektorowa, rastrowa(zdjęcie, bitmapa)
+Wektorowa:
+-SVG - najważniejszy format wektorowy do stron www
+-SWF - przestarzała wycofana technologia Flash
+
+Rastrowa:
+-JPG - najpopularniejszy format, który najlepiej się kompresuje
+-GIF - przechowuje animacje
+-PNG - obsługa przeźroczystości
+
+photopea.com
+
+
+
+elektronicznekartki.pl/szkolenie-radomsko/mturno
+
+elektronicznekartki.pl/szkolenie-radomsko/mturno/prework
+elektronicznekartki.pl/szkolenie-radomsko/mturno/wordpress
+
+/domeny/elektronicznekartki/szkolenie-radomsko/mturno
+
+cyberfolks.pl
+zakładka Panel admin
+szkolenieradomsko.aguero
+5bdMqcFwSNVPi
+elektronicznekartki.pl
+
+
+
+
+
+
+Szkolenie962#
+
+
+
+
+
+
+
+Wtyczka Duplicator tworzy dwa pliki
+installer.php
+spakowane_archiwum_zip_calego_wordpressa.zip
+
+
+
+elektronicznekartki.pl/szkolenie-radomsko/mturno/wordpress/installer.php
+
+Szkolenie962#
+
+
+
+
+
+
+
+
+
+http://bit.ly/3ZJ08ZC
+
+
+
+
